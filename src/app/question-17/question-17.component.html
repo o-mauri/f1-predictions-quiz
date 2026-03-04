@@ -1,0 +1,62 @@
+<app-question-title
+  [number]="17"
+  [title]="'True or False'"
+  [question]="'Predict whether each of these statements are true or false?'"
+  [description]="'5pts for correct answer'"
+/>
+
+<div class="question-17">
+  @for (statement of statements; track statement.statement; let i = $index) {
+    <div class="statement-card">
+      <div class="statement-text">{{ statement.statement }}</div>
+      <div class="answer-meta">
+        <span class="answer-label">Answer:</span>
+        <span class="answer-value" [class.confirmed]="statement.confirmed" [class.provisional]="!statement.confirmed">
+          {{ statement.answer ? 'True' : 'False' }} {{ statement.answer ? '✓' : '✗' }}
+        </span>
+      </div>
+      <div class="picks-split">
+        <div class="pick-column" [class.correct-answer]="statement.answer === true">
+          <div class="column-header">
+            <span class="pick-title">True</span>
+            <span class="icon icon-true">✓</span>
+          </div>
+          <div class="player-list">
+            @for (answer of getAnswersForPick(i, true); track answer.player.name) {
+              @let correct = isCorrect(statement, true);
+              <div class="player-pick">
+                <app-player-icon [player]="answer.player" size="med" variant="image" />
+                @if (correct) {
+                  <span class="points-badge" [class.confirmed-points]="statement.confirmed" [class.provisional-points]="!statement.confirmed">+5</span>
+                }
+              </div>
+            }
+            @if (getAnswersForPick(i, true).length === 0) {
+              <span class="empty-hint">—</span>
+            }
+          </div>
+        </div>
+        <div class="pick-column" [class.correct-answer]="statement.answer === false">
+          <div class="column-header">
+            <span class="pick-title">False</span>
+            <span class="icon icon-false">✗</span>
+          </div>
+          <div class="player-list">
+            @for (answer of getAnswersForPick(i, false); track answer.player.name) {
+              @let correct = isCorrect(statement, false);
+              <div class="player-pick">
+                <app-player-icon [player]="answer.player" size="med" variant="image" />
+                @if (correct) {
+                  <span class="points-badge" [class.confirmed-points]="statement.confirmed" [class.provisional-points]="!statement.confirmed">+5</span>
+                }
+              </div>
+            }
+            @if (getAnswersForPick(i, false).length === 0) {
+              <span class="empty-hint">—</span>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</div>

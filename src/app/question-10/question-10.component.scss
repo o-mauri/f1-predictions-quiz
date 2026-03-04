@@ -1,0 +1,38 @@
+.driver-name {
+  font-family: var(--font-display);
+  font-size: 11px;
+  color: var(--text-primary);
+}
+
+.answer-grid {
+  width: 100%;
+
+  table {
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+
+    th,
+    td {
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    th {
+      padding-bottom: 15px;
+    }
+
+    td {
+      text-align: center;
+    }
+  }
+}
+
+.race-points {
+  font-family: var(--font-display);
+  font-size: 12px;
+  color: var(--confirmed-points);
+}

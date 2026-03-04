@@ -1,1 +1,70 @@
-/* You can add global styles to this file, and also import other style files */
+/* Racing theme – dark red main, white accent */
+:root {
+  /* Main palette */
+  --racing-red: #5c0a0a;
+  --racing-red-dark: #3d0606;
+  --racing-red-darker: #2a0404;
+  --racing-red-border: #7a0f0f;
+  --accent: #ffffff;
+  --accent-muted: rgba(255, 255, 255, 0.85);
+  --accent-dim: rgba(255, 255, 255, 0.6);
+  --accent-soft: rgba(255, 255, 255, 0.12);
+  --provisional-points: #fca800;
+  --confirmed-points: #03e50bc9;
+  --confirmed-points-negative: #e50303;
+  /* Surfaces */
+  --header-bg: var(--racing-red-dark);
+  --content-bg: var(--racing-red-darker);
+  --card-bg: var(--racing-red);
+  --input-bg: var(--racing-red);
+
+  /* Text */
+  --text-primary: var(--accent);
+  --text-muted: var(--accent-dim);
+  --text-strong: var(--accent);
+
+  /* Borders & effects */
+  --border: var(--racing-red-border);
+  --focus-ring: var(--accent);
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --stripes: repeating-linear-gradient(
+    105deg,
+    transparent,
+    transparent 3px,
+    rgba(255, 255, 255, 0.02) 3px,
+    rgba(255, 255, 255, 0.02) 6px
+  );
+
+  /* Typography */
+  --font-display: 'Racing Sans One', sans-serif;
+  --font-body: 'Teko', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  color: var(--text-primary);
+  background: var(--content-bg);
+  letter-spacing: 0.02em;
+}
+
+/* Racing theme – page titles across the app */
+.page-title {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+}

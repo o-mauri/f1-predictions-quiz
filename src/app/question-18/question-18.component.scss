@@ -1,0 +1,32 @@
+.answer-grid {
+  width: 100%;
+  table {
+    width: 100%;
+    table-layout: auto;
+    td {
+      text-align: center;
+      padding-bottom: 15px;
+    }
+  }
+}
+
+.player-icon-cell {
+  padding-right: 10px;
+}
+
+.race-cell {
+  gap: 0.5rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.race-points-cell {
+  font-family: var(--font-body);
+  font-size: 20px;
+  color: var(--confirmed-points);
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+}

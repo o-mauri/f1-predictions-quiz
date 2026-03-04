@@ -1,0 +1,589 @@
+<app-question-title
+  [number]="14"
+  [title]="'Team Mate Battles'"
+  [question]="'Answer one question for each Formula 1 team mate pairing'"
+  [description]="'5pts per correct answer'"
+/>
+
+<div class="team-box">
+  <div class="team-header">
+    <app-team-icon [team]="Teams.mercedes" size="med" variant="circular" />
+    <span class="team-name">{{ Teams.mercedes.name }}</span>
+    <app-team-icon [team]="Teams.mercedes" size="med" variant="circular" />
+  </div>
+  <div class="question-box">Which driver will score the most 2nd and 3rd place finishes?</div>
+  <div class="answer-grid">
+    <div class="selections-box">
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.georgeRussell" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.georgeRussell.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.mercedesAnswer === Drivers.georgeRussell) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.mercedesWinner === Drivers.georgeRussell) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.kimiAntonelli" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.kimiAntonelli.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.mercedesAnswer === Drivers.kimiAntonelli) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.mercedesWinner === Drivers.kimiAntonelli) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+    </div>
+    <div class="results-box">
+      <div class="stat-box">
+        {{ results.mercedesStat1 }}
+      </div>
+      <div class="stat-box">
+        {{ results.mercedesStat2 }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="team-box">
+  <div class="team-header">
+    <app-team-icon [team]="Teams.ferrari" size="med" variant="circular" />
+    <span class="team-name">{{ Teams.ferrari.name }}</span>
+    <app-team-icon [team]="Teams.ferrari" size="med" variant="circular" />
+  </div>
+  <div class="question-box">Which driver have the most DNFs?</div>
+  <div class="answer-grid">
+    <div class="selections-box">
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.lewisHamilton" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.lewisHamilton.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.ferrariAnswer === Drivers.lewisHamilton) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.ferrariWinner === Drivers.lewisHamilton) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.charlesLeclerc" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.charlesLeclerc.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.ferrariAnswer === Drivers.charlesLeclerc) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.ferrariWinner === Drivers.charlesLeclerc) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+    </div>
+    <div class="results-box">
+      <div class="stat-box">
+        {{ results.ferrariStat1 }}
+      </div>
+      <div class="stat-box">
+        {{ results.ferrariStat2 }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="team-box">
+  <div class="team-header">
+    <app-team-icon [team]="Teams.redBull" size="med" variant="circular" />
+    <span class="team-name">{{ Teams.redBull.name }}</span>
+    <app-team-icon [team]="Teams.redBull" size="med" variant="circular" />
+  </div>
+  <div class="question-box">Will Verstappen score at least double Hadjar's points?</div>
+  <div class="answer-grid">
+    <div class="selections-box">
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.maxVerstappen" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.maxVerstappen.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.redBullAnswer === Drivers.maxVerstappen) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.redBullWinner === Drivers.maxVerstappen) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.isackHadjar" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.isackHadjar.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.redBullAnswer === Drivers.isackHadjar) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.redBullWinner === Drivers.isackHadjar) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+    </div>
+    <div class="results-box">
+      <div class="stat-box">
+        {{ results.redBullStat1 }}
+      </div>
+      <div class="stat-box">
+        {{ results.redBullStat2 }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="team-box">
+  <div class="team-header">
+    <app-team-icon [team]="Teams.mclaren" size="med" variant="circular" />
+    <span class="team-name">{{ Teams.mclaren.name }}</span>
+    <app-team-icon [team]="Teams.mclaren" size="med" variant="circular" />
+  </div>
+  <div class="question-box">Who will win more races?</div>
+  <div class="answer-grid">
+    <div class="selections-box">
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.landoNorris" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.landoNorris.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.mclarenAnswer === Drivers.landoNorris) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.mclarenWinner === Drivers.landoNorris) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.oscarPiastri" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.oscarPiastri.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.mclarenAnswer === Drivers.oscarPiastri) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.mclarenWinner === Drivers.oscarPiastri) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+    </div>
+    <div class="results-box">
+      <div class="stat-box">
+        {{ results.mclarenStat1 }}
+      </div>
+      <div class="stat-box">
+        {{ results.mclarenStat2 }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="team-box">
+  <div class="team-header">
+    <app-team-icon [team]="Teams.haas" size="med" variant="circular" />
+    <span class="team-name">{{ Teams.haas.name }}</span>
+    <app-team-icon [team]="Teams.haas" size="med" variant="circular" />
+  </div>
+  <div class="question-box">Who will finish in the points in the most main races?</div>
+  <div class="answer-grid">
+    <div class="selections-box">
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.oliverBearman" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.oliverBearman.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.haasAnswer === Drivers.oliverBearman) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.haasWinner === Drivers.oliverBearman) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.estebanOcon" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.estebanOcon.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.haasAnswer === Drivers.estebanOcon) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.haasWinner === Drivers.estebanOcon) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+    </div>
+    <div class="results-box">
+      <div class="stat-box">
+        {{ results.haasStat1 }}
+      </div>
+      <div class="stat-box">
+        {{ results.haasStat2 }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="team-box">
+  <div class="team-header">
+    <app-team-icon [team]="Teams.racingBulls" size="med" variant="circular" />
+    <span class="team-name">{{ Teams.racingBulls.name }}</span>
+    <app-team-icon [team]="Teams.racingBulls" size="med" variant="circular" />
+  </div>
+  <div class="question-box">Who will complete the most racing laps?</div>
+  <div class="answer-grid">
+    <div class="selections-box">
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.liamLawson" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.liamLawson.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.racingBullsAnswer === Drivers.liamLawson) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.racingBullsWinner === Drivers.liamLawson) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.arvidLindblad" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.arvidLindblad.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.racingBullsAnswer === Drivers.arvidLindblad) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.racingBullsWinner === Drivers.arvidLindblad) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+    </div>
+    <div class="results-box">
+      <div class="stat-box">
+        {{ results.racingBullsStat1 }}
+      </div>
+      <div class="stat-box">
+        {{ results.racingBullsStat2 }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="team-box">
+  <div class="team-header">
+    <app-team-icon [team]="Teams.cadillac" size="med" variant="circular" />
+    <span class="team-name">{{ Teams.cadillac.name }}</span>
+    <app-team-icon [team]="Teams.cadillac" size="med" variant="circular" />
+  </div>
+  <div class="question-box">Who will win the qualifying head to head?</div>
+  <div class="answer-grid">
+    <div class="selections-box">
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.sergioPerez" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.sergioPerez.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.cadillacAnswer === Drivers.sergioPerez) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.cadillacWinner === Drivers.sergioPerez) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.valtteriBottas" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.valtteriBottas.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.cadillacAnswer === Drivers.valtteriBottas) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.cadillacWinner === Drivers.valtteriBottas) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+    </div>
+    <div class="results-box">
+      <div class="stat-box">
+        {{ results.cadillacStat1 }}
+      </div>
+      <div class="stat-box">
+        {{ results.cadillacStat2 }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="team-box">
+  <div class="team-header">
+    <app-team-icon [team]="Teams.williams" size="med" variant="circular" />
+    <span class="team-name">{{ Teams.williams.name }}</span>
+    <app-team-icon [team]="Teams.williams" size="med" variant="circular" />
+  </div>
+  <div class="question-box">Which driver will score more points?</div>
+  <div class="answer-grid">
+    <div class="selections-box">
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.carlosSainz" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.carlosSainz.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.williamsAnswer === Drivers.carlosSainz) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.williamsWinner === Drivers.carlosSainz) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.alexanderAlbon" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.alexanderAlbon.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.williamsAnswer === Drivers.alexanderAlbon) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.williamsWinner === Drivers.alexanderAlbon) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+    </div>
+    <div class="results-box">
+      <div class="stat-box">
+        {{ results.williamsStat1 }}
+      </div>
+      <div class="stat-box">
+        {{ results.williamsStat2 }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="team-box">
+  <div class="team-header">
+    <app-team-icon [team]="Teams.alpine" size="med" variant="circular" />
+    <span class="team-name">{{ Teams.alpine.name }}</span>
+    <app-team-icon [team]="Teams.alpine" size="med" variant="circular" />
+  </div>
+  <div class="question-box">Which driver will have the highest race finish?</div>
+  <div class="answer-grid">
+    <div class="selections-box">
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.pierreGasly" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.pierreGasly.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.alpineAnswer === Drivers.pierreGasly) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.alpineWinner === Drivers.pierreGasly) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.francoColapinto" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.francoColapinto.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.alpineAnswer === Drivers.francoColapinto) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.alpineWinner === Drivers.francoColapinto) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+    </div>
+    <div class="results-box">
+      <div class="stat-box">
+        {{ results.alpineStat1 }}
+      </div>
+      <div class="stat-box">
+        {{ results.alpineStat2 }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="team-box">
+  <div class="team-header">
+    <app-team-icon [team]="Teams.audi" size="med" variant="circular" />
+    <span class="team-name">{{ Teams.audi.name }}</span>
+    <app-team-icon [team]="Teams.audi" size="med" variant="circular" />
+  </div>
+  <div class="question-box">Which driver will score more sprint points?</div>
+  <div class="answer-grid">
+    <div class="selections-box">
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.nicoHulkenberg" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.nicoHulkenberg.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.audiAnswer === Drivers.nicoHulkenberg) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.audiWinner === Drivers.nicoHulkenberg) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.gabrielBortoleto" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.gabrielBortoleto.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.audiAnswer === Drivers.gabrielBortoleto) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.audiWinner === Drivers.gabrielBortoleto) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+    </div>
+    <div class="results-box">
+      <div class="stat-box">
+        {{ results.audiStat1 }}
+      </div>
+      <div class="stat-box">
+        {{ results.audiStat2 }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="team-box">
+  <div class="team-header">
+    <app-team-icon [team]="Teams.astonMartin" size="med" variant="circular" />
+    <span class="team-name">{{ Teams.astonMartin.name }}</span>
+    <app-team-icon [team]="Teams.astonMartin" size="med" variant="circular" />
+  </div>
+  <div class="question-box">Who will finish 11th more times?</div>
+  <div class="answer-grid">
+    <div class="selections-box">
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.fernandoAlonso" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.fernandoAlonso.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.astonMartinAnswer === Drivers.fernandoAlonso) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.astonMartinWinner === Drivers.fernandoAlonso) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+      <div class="driver-container">
+        <div class="driver-photo">
+          <app-driver-photo [driver]="Drivers.lanceStroll" size="med" variant="circular" />
+          <div class="driver-name">{{ Drivers.lanceStroll.shortName }}</div>
+        </div>
+        <div class="driver-selections">
+          @for (answer of answers; track answer.player.name) {
+            @if (answer.astonMartinAnswer === Drivers.lanceStroll) {
+              <app-player-icon [player]="answer.player" size="sm" variant="image" />
+              @if (results.astonMartinWinner === Drivers.lanceStroll) {
+                <span class="provisional-points">+5</span>
+              }
+            }
+          }
+        </div>
+      </div>
+    </div>
+    <div class="results-box">
+      <div class="stat-box">
+        {{ results.astonMartinStat1 }}
+      </div>
+      <div class="stat-box">
+        {{ results.astonMartinStat2 }}
+      </div>
+    </div>
+  </div>
+</div>

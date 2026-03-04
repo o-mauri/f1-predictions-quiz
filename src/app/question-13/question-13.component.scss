@@ -1,0 +1,30 @@
+.pit-count-emoji {
+  font-size: 1.6rem;
+}
+
+.pit-count-cell {
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 90px;
+}
+
+.player-icon-cell {
+  padding-right: 15px;
+}
+
+.provisional-points-cell {
+  text-align: right;
+  font-size: 40px;
+  color: var(--provisional-points);
+}
+
+.confirmed-points-cell {
+  text-align: right;
+  font-size: 40px;
+  color: var(--confirmed-points);
+}

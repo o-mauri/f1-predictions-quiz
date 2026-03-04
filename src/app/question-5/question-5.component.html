@@ -1,0 +1,15 @@
+<app-question-title [number]="5" [title]="'Mr Reliable'" [question]="'Which driver will complete the most racing laps over the season?'" [description]="'25pts for 1st, 18pts for 2nd, 15pts for 3rd etc...'" />
+
+<div class="answer-grid">
+  <table>
+    @for (answer of answers; track answer.player.name) {
+    <tr>
+      <td class="player-icon-cell"><app-player-icon [player]="answer.player" size="large" variant="image" /></td>
+      <td class="driver-photo-cell"><app-driver-photo [driver]="answer.driver" size="med" variant="circular" /></td>
+      <td class="driver-name-cell">{{ answer.driver.longName }}</td>
+      <td class="provisional-points-cell">{{ answer.provisionalPoints }}</td>
+      <td [class]="'confirmed-points-cell ' + (answer.confirmedPoints === '' ? 'confirmed-points-negative' : '')">{{ answer.confirmedPoints === "+0" ? answer.confirmedNegativePoints : answer.confirmedPoints }}</td>
+    </tr>
+  }
+  </table>  
+</div>

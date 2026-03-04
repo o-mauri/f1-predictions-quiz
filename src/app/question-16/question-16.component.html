@@ -1,0 +1,44 @@
+<app-question-title
+  [number]="16"
+  [title]="'The Final Showdown'"
+  [question]="'Predict the podium order for the Abu Dhabi Grand Prix?'"
+  [description]="'2pts per correct driver, 5pts for correct position'"
+/>
+
+@for (answer of answers; track answer.player.name) {
+  <div class="answer-wrapper">
+    <app-player-icon [player]="answer.player" size="large" variant="image" />
+    <div class="podium-box">
+      <div class="podium-item">
+        <div class="driver-container">
+          <div class="driver-info">
+            <app-driver-photo [driver]="answer.driver2" size="med" variant="circular" />
+            <div class="driver-name">{{ answer.driver2.shortName }}</div>
+          </div>
+          <div class="driver-points">+{{ answer.points2 }}</div>
+        </div>
+        <div class="podium-2-graphic"></div>
+      </div>
+      <div class="podium-item">
+        <div class="driver-container">
+          <div class="driver-info">
+            <app-driver-photo [driver]="answer.driver1" size="med" variant="circular" />
+            <div class="driver-name">{{ answer.driver1.shortName }}</div>
+          </div>
+          <div class="driver-points">+{{ answer.points1 }}</div>
+        </div>
+        <div class="podium-1-graphic"></div>
+      </div>
+      <div class="podium-item">
+        <div class="driver-container">
+          <div class="driver-info">
+            <app-driver-photo [driver]="answer.driver3" size="med" variant="circular" />
+            <div class="driver-name">{{ answer.driver3.shortName }}</div>
+          </div>
+          <div class="driver-points">+{{ answer.points3 }}</div>
+        </div>
+        <div class="podium-3-graphic"></div>
+      </div>
+    </div>
+  </div>
+}

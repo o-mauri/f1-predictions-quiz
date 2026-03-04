@@ -1,0 +1,281 @@
+:host {
+  display: block;
+  padding-bottom: 4rem;
+}
+
+.scores-page {
+  min-height: 0;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+
+  &--box {
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    margin-top: 10px;
+    color: var(--racing-red);
+    border: 2px solid var(--racing-red);
+    font-size: 1.25rem;
+  }
+}
+
+/* Key fixed to bottom of viewport */
+.points-key {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.5rem;
+  padding: 0.6rem 1rem;
+  background: var(--racing-red-dark);
+  border-top: 1px solid var(--border);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  z-index: 20;
+}
+
+.points-key__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.points-key__swatches {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.points-key__swatch {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+
+  &--provisional {
+    background: var(--provisional-points);
+  }
+
+  &--confirmed {
+    background: var(--confirmed-points);
+  }
+
+  &--confirmed-negative {
+    background: var(--confirmed-points-negative);
+  }
+}
+
+.points-key__label {
+  color: var(--text-primary);
+}
+
+.table-scroll-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--card-bg);
+}
+
+.scores-table {
+  /* Total width: pos + player + 20*Q + total-pc + total = 1.5 + 4 + 45 + 3 + 3.5 = 57rem */
+  width: 57rem;
+  min-width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: 1rem;
+
+  th,
+  td {
+    padding: 0.5rem 0.4rem;
+    text-align: center;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--border);
+    box-sizing: border-box;
+  }
+
+  thead th {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--text-primary);
+    background: var(--racing-red-dark);
+    border-bottom: 2px solid var(--border);
+  }
+
+  thead th.sticky-left,
+  thead th.sticky-right {
+    position: sticky;
+  }
+
+  tbody tr:hover td {
+    background: rgba(255, 255, 255, 0.03);
+  }
+}
+
+/* Fixed widths so thead and tbody columns align */
+.col-position {
+  width: 1.5rem;
+  min-width: 1.5rem;
+  max-width: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+
+  .position-label {
+    font-size: 0.7rem;
+    line-height: 1.2;
+  }
+}
+
+.col-player {
+  width: 4rem;
+  min-width: 4rem;
+  max-width: 4rem;
+  text-align: left;
+  padding-left: 0.35rem;
+}
+
+.col-qu {
+  width: 2.25rem;
+  min-width: 2.25rem;
+  max-width: 2.25rem;
+  font-size: 0.85rem;
+}
+
+.points-stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  line-height: 1.1;
+}
+
+.col-total-pc {
+  width: 3rem;
+  min-width: 3rem;
+  max-width: 3rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.col-total {
+  width: 3.5rem;
+  min-width: 3.5rem;
+  max-width: 3.5rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.provisional {
+  color: var(--provisional-points);
+}
+
+.confirmed {
+  color: var(--confirmed-points);
+
+  &.negative {
+    color: var(--confirmed-points-negative);
+  }
+}
+
+.sep {
+  color: var(--text-muted);
+  margin: 0 0.15rem;
+  font-weight: 400;
+}
+
+.total-value {
+  color: var(--text-primary);
+}
+
+/* Sticky left: position + player */
+.sticky-left {
+  position: sticky;
+  z-index: 2;
+  background: var(--card-bg);
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.2);
+}
+
+thead .col-position.sticky-left {
+  left: 0;
+  z-index: 3;
+  background: var(--racing-red-dark);
+}
+
+thead .col-player.sticky-left {
+  left: 1.5rem;
+  z-index: 3;
+  background: var(--racing-red-dark);
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.2);
+}
+
+tbody .col-position.sticky-left {
+  left: 0;
+  background: var(--card-bg);
+}
+
+tbody tr:hover .col-position.sticky-left {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+tbody .col-player.sticky-left {
+  left: 1.5rem;
+  background: var(--card-bg);
+}
+
+tbody tr:hover .col-player.sticky-left {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Sticky right: total P/C + total */
+.sticky-right {
+  position: sticky;
+  z-index: 2;
+  background: var(--card-bg);
+  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
+}
+
+thead .col-total.sticky-right {
+  right: 0;
+  z-index: 3;
+  background: var(--racing-red-dark);
+}
+
+thead .col-total-pc.sticky-right {
+  right: 3.5rem;
+  z-index: 3;
+  background: var(--racing-red-dark);
+  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
+}
+
+tbody .col-total.sticky-right {
+  right: 0;
+  background: var(--card-bg);
+}
+
+tbody tr:hover .col-total.sticky-right {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+tbody .col-total-pc.sticky-right {
+  right: 3.5rem;
+  background: var(--card-bg);
+}
+
+tbody tr:hover .col-total-pc.sticky-right {
+  background: rgba(255, 255, 255, 0.03);
+}

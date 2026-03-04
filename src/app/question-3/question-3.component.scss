@@ -1,0 +1,47 @@
+
+
+.answer-grid {
+  width: 100%;
+
+  table {
+    width: 100%;
+    table-layout: auto;
+  }
+}
+
+.player-icon-cell {
+  width: 5rem;
+  padding-right: 15px;
+}
+
+.driver-photo-cell {
+  width: 4rem;
+  padding-bottom: 15px;
+}
+
+.driver-name-cell {
+  width: 100%;
+  padding-bottom: 15px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+.provisional-points-cell {
+  white-space: nowrap;
+  padding-bottom: 15px;
+  color: var(--provisional-points);
+  font-size: 40px;
+  text-align: right;
+}
+
+.confirmed-points-cell {
+  white-space: nowrap;
+  padding-bottom: 15px;
+  color: var(--confirmed-points);
+  font-size: 40px;
+  text-align: right;
+  &.confirmed-points-negative {
+    color: var(--confirmed-points-negative) !important;
+  }
+}

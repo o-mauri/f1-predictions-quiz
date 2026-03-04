@@ -1,0 +1,44 @@
+<app-question-title
+  [number]="10"
+  [title]="'Score their points'"
+  [question]="'At which race will the drivers score the most points?'"
+  [description]="'1pt per point scored by the driver in the race'"
+/>
+
+<div class="answer-grid">
+  <table>
+    <tr>
+      <th></th>
+      <th>
+        <app-driver-photo [driver]="drivers.alexanderAlbon" size="med" variant="square" />
+        <div class="driver-name">Albon</div>
+      </th>
+      <th>
+        <app-driver-photo [driver]="drivers.nicoHulkenberg" size="med" variant="square" />
+        <div class="driver-name">Hulkenberg</div>
+      </th>
+      <th>
+        <app-driver-photo [driver]="drivers.sergioPerez" size="med" variant="square" />
+        <div class="driver-name">Perez</div>
+      </th>
+      <th>
+        <app-driver-photo [driver]="drivers.isackHadjar" size="med" variant="square" />
+        <div class="driver-name">Hadjar</div>
+      </th>
+      <th>
+        <app-driver-photo [driver]="drivers.liamLawson" size="med" variant="square" />
+        <div class="driver-name">Lawson</div>
+      </th>
+    </tr>
+    @for (answer of answers; track answer.player.name) {
+      <tr>
+        <td><app-player-icon [player]="answer.player" size="med" variant="image" /></td>
+        <td><app-race-icon [race]="answer.race1" [showLabel]="true" size="sm" [surfaceText]="answer.race1pos" />@if (answer.race1pos !== '') {<span class="race-points">+{{ answer.race1pts }}</span>}</td>
+        <td><app-race-icon [race]="answer.race2" [showLabel]="true" size="sm" [surfaceText]="answer.race2pos" />@if (answer.race2pos !== '') {<span class="race-points">+{{ answer.race2pts }}</span>}</td>
+        <td><app-race-icon [race]="answer.race3" [showLabel]="true" size="sm" [surfaceText]="answer.race3pos" />@if (answer.race3pos !== '') {<span class="race-points">+{{ answer.race3pts }}</span>}</td>
+        <td><app-race-icon [race]="answer.race4" [showLabel]="true" size="sm" [surfaceText]="answer.race4pos" />@if (answer.race4pos !== '') {<span class="race-points">+{{ answer.race4pts }}</span>}</td>
+        <td><app-race-icon [race]="answer.race5" [showLabel]="true" size="sm" [surfaceText]="answer.race5pos" />@if (answer.race5pos !== '') {<span class="race-points">+{{ answer.race5pts }}</span>}</td>
+      </tr>
+    }
+  </table>
+</div>

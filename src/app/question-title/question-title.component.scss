@@ -1,0 +1,30 @@
+.question-number {
+  font-family: var(--font-display);
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--racing-red);
+  border: 2px solid var(--racing-red);
+  font-size: 1.25rem;
+  margin-top: 10px;
+}
+
+.question-question {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+.question-description {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+.question-container {
+    background-color: var(--racing-red);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid var(--racing-red-border);
+    margin-bottom: 10px;
+}

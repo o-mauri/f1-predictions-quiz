@@ -1,0 +1,70 @@
+<app-question-title
+  [number]="8"
+  [title]="'Most Chaotic Days'"
+  [question]="'Which two Grand Prix will have the most incidents?'"
+  [description]="'15pts per red flag, 10pts per safety car, 5pts per virtual safety car'"
+/>
+
+@for (answer of answers; track answer.player.name) {
+  <div class="answer-wrapper">
+    <div class="answer-header">
+      <div class="answer-header-left">
+        <div class="player-icon-cell">
+          <app-player-icon [showName]="false" [player]="answer.player" size="med" variant="image" />
+        </div>
+        <div class="player-name-cell">{{ answer.player.name }}</div>
+      </div>
+      <div class="answer-header-right">
+        <div class="confirmed-points-cell">{{ answer.confirmedPoints }}</div>
+      </div>
+    </div>
+    <div class="race-row">
+      <div class="race-group">
+        <app-race-icon [race]="answer.race1" [showLabel]="true" size="large" variant="standard" />
+        <div class="stats-group">
+          <div class="stat-item">
+            <div class="stat-item-label">Red Flags</div>
+            <div class="stat-item-value">
+              {{ answer.red1 }} <span class="confirmed-points">+{{ answer.red1 * 15 }}</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item-label">Safety Cars</div>
+            <div class="stat-item-value">
+              {{ answer.sc1 }} <span class="confirmed-points">+{{ answer.sc1 * 10 }}</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item-label">Virtual Safety Cars</div>
+            <div class="stat-item-value">
+              {{ answer.vsc1 }} <span class="confirmed-points">+{{ answer.vsc1 * 5 }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="race-group">
+        <app-race-icon [race]="answer.race2" [showLabel]="true" size="large" variant="standard" />
+        <div class="stats-group">
+          <div class="stat-item">
+            <div class="stat-item-label">Red Flags</div>
+            <div class="stat-item-value">
+              {{ answer.red2 }} <span class="confirmed-points">+{{ answer.red2 * 15 }}</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item-label">Safety Cars</div>
+            <div class="stat-item-value">
+              {{ answer.sc2 }} <span class="confirmed-points">+{{ answer.sc2 * 10 }}</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-item-label">Virtual Safety Cars</div>
+            <div class="stat-item-value">
+              {{ answer.vsc2 }} <span class="confirmed-points">+{{ answer.vsc2 * 5 }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}

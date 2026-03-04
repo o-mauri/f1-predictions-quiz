@@ -1,0 +1,15 @@
+<app-question-title [number]="2" [title]="'Best of the rest of the rest of the rest...'" [question]="'Which team will finish 6th in the constructors championship?'" [description]="'10pts for correct answer, 5pts for one away, 1pt for two away'" />
+
+<div class="answer-grid">
+  <table>
+    @for (answer of answers; track answer.player.name) {
+    <tr>
+      <td class="player-icon-cell"><app-player-icon [player]="answer.player" size="large" variant="image" /></td>
+      <td class="team-icon-cell"><app-team-icon [team]="answer.team" size="med" variant="circular" /></td>
+      <td class="team-name-cell">{{ answer.team.name }}</td>
+      <td class="provisional-points-cell">{{ answer.provisionalPoints }}</td>
+      <td [class]="'confirmed-points-cell ' + (answer.confirmedPoints === '' ? 'confirmed-points-negative' : '')">{{ answer.confirmedPoints === "+0" ? answer.confirmedNegativePoints : answer.confirmedPoints }}</td>
+    </tr>
+  }
+  </table>  
+</div>

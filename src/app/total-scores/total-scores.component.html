@@ -1,0 +1,89 @@
+<div class="scores-page">
+  <h1 class="page-title page-title--box">Total Scores</h1>
+
+  <div class="table-scroll-wrap">
+  <table class="scores-table">
+    <colgroup>
+      <col class="col-position" />
+      <col class="col-player" />
+      @for (q of questionNumbers; track q) {
+        <col class="col-qu" />
+      }
+      <col class="col-total-pc" />
+      <col class="col-total" />
+    </colgroup>
+    <thead>
+      <tr>
+        <th class="col-position sticky-left"></th>
+        <th class="col-player sticky-left">Player</th>
+        @for (q of questionNumbers; track q) {
+          <th class="col-qu">Q{{ q }}</th>
+        }
+        <th class="col-total-pc sticky-right"></th>
+        <th class="col-total sticky-right">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (row of orderedScores; track row.player.name; let i = $index) {
+        <tr>
+          <td class="col-position sticky-left">
+            <span class="position-label">{{ positionLabel(i) }}</span>
+          </td>
+          <td class="col-player sticky-left">
+            <app-player-icon [player]="row.player" size="med" variant="image" [showName]="true" />
+          </td>
+          @for (q of questionNumbers; track q) {
+            <td class="col-qu">
+              @if (showStacked(getProvisional(row, q), getConfirmed(row, q))) {
+                <span class="points-stacked">
+                  <span class="provisional">{{ formatPoints(getProvisional(row, q)) }}</span>
+                  <span class="confirmed" [class.negative]="getConfirmed(row, q) < 0">{{
+                    formatPoints(getConfirmed(row, q))
+                  }}</span>
+                </span>
+              } @else if (showConfirmedOnly(getProvisional(row, q), getConfirmed(row, q))) {
+                <span class="confirmed" [class.negative]="getConfirmed(row, q) < 0">{{
+                  formatPoints(getConfirmed(row, q))
+                }}</span>
+              } @else {
+                <span class="provisional">{{ formatPoints(getProvisional(row, q)) }}</span>
+              }
+            </td>
+          }
+          <td class="col-total-pc sticky-right">
+            @if (showStacked(getTotalProvisional(row), getTotalConfirmed(row))) {
+              <span class="points-stacked">
+                <span class="provisional">{{ formatPoints(getTotalProvisional(row)) }}</span>
+                <span class="confirmed" [class.negative]="getTotalConfirmed(row) < 0">{{
+                  formatPoints(getTotalConfirmed(row))
+                }}</span>
+              </span>
+            } @else if (showConfirmedOnly(getTotalProvisional(row), getTotalConfirmed(row))) {
+              <span class="confirmed" [class.negative]="getTotalConfirmed(row) < 0">{{
+                formatPoints(getTotalConfirmed(row))
+              }}</span>
+            } @else {
+              <span class="provisional">{{ formatPoints(getTotalProvisional(row)) }}</span>
+            }
+          </td>
+          <td class="col-total sticky-right total-value">{{ formatPoints(totalPoints(row)) }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<footer class="points-key">
+  <span class="points-key__item">
+    <span class="points-key__swatch points-key__swatch--provisional"></span>
+    <span class="points-key__label">Provisional</span>
+  </span>
+  <span class="points-key__item">
+    <span class="points-key__swatches">
+      <span class="points-key__swatch points-key__swatch--confirmed"></span>
+      <span class="points-key__swatch points-key__swatch--confirmed-negative"></span>
+    </span>
+    <span class="points-key__label">Confirmed</span>
+  </span>
+</footer>

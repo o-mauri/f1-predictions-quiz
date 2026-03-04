@@ -1,0 +1,52 @@
+<app-question-title
+  [number]="6"
+  [title]="'Every Podium'"
+  [question]="'Which drivers will finish on the podium in 2026?'"
+  [description]="'5pts per correct answer, -3 per incorrect or missed driver'"
+/>
+
+@for (answer of answers; track answer.player.name) {
+  <div class="answer-wrapper">
+    <div class="answer-header">
+      <div class="answer-header-left">
+        <div class="player-icon-cell">
+          <app-player-icon [showName]="false" [player]="answer.player" size="med" variant="image" />
+        </div>
+        <div class="player-name-cell">{{ answer.player.name }}</div>
+      </div>
+      <div class="answer-header-right">
+        <div class="provisional-points-cell">{{ answer.provisionalPoints }}</div>
+        <div [class]="'confirmed-points-cell ' + (answer.confirmedPoints === '' ? 'confirmed-points-negative' : '')">{{ answer.confirmedPoints === '' ? answer.confirmedNegativePoints : answer.confirmedPoints }}</div>
+      </div>
+    </div>
+    <div class="driver-icon-row">
+      @for (driver of displayedDrivers; track driver.longName) {
+        <div class="driver-icon-container">
+          @if (answer.drivers.includes(driver) && podiumDrivers.includes(driver)) {
+          <div class="driver-points-cell confirmed">+5</div>
+          }
+          @else if (answer.drivers.includes(driver) && !podiumDrivers.includes(driver)) {
+            <div class="driver-points-cell provisional">-3</div>
+          }
+          @else if (!answer.drivers.includes(driver) && podiumDrivers.includes(driver)) {
+            <div class="driver-points-cell confirmed-negative">-3</div>
+          }
+          @else {
+            <div class="driver-points-cell" style="opacity: 0;">0</div>
+          }
+        <app-driver-photo
+          [driver]="driver"
+          size="sm"
+          variant="initials"
+          [ngStyle]="{
+            opacity: answer.drivers.includes(driver) || podiumDrivers.includes(driver) ? 1 : 0,
+          }"
+          [ticked]="answer.drivers.includes(driver) && podiumDrivers.includes(driver)"
+          [crossed]="!answer.drivers.includes(driver) && podiumDrivers.includes(driver)"
+          [greyed]="!answer.drivers.includes(driver) && podiumDrivers.includes(driver)"
+        ></app-driver-photo>
+      </div>
+      }
+    </div>
+  </div>
+}

@@ -1,0 +1,167 @@
+.picks-section,
+.results-section {
+  margin-bottom: 2rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.results-section {
+  background-color: rgba(121, 121, 121, 0.412);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--racing-red-border);
+}
+
+.section-heading {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--accent-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.75rem 0;
+}
+
+.result-count {
+  font-weight: 400;
+  color: var(--accent-muted);
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+.answer-grid,
+.results-grid {
+  width: 100%;
+  overflow-x: auto;
+
+  table {
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  th {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    color: var(--accent-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 400;
+  }
+
+}
+
+.answer-grid tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.results-grid .winner-cell:first-of-type {
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.player-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.player-name {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.pick-col,
+.points-col {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.pick-cell {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.provisional-cell {
+  color: var(--provisional-points);
+  font-size: 1.5rem;
+  font-family: var(--font-body);
+}
+
+.confirmed-cell {
+  color: var(--confirmed-points);
+  font-size: 1.5rem;
+  font-family: var(--font-body);
+
+  &.confirmed-negative {
+    color: var(--confirmed-points-negative);
+  }
+}
+
+.race-cell {
+  padding-right: 1rem;
+}
+
+.winner-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .driver-name {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--accent);
+  }
+}
+
+.placeholder {
+  color: var(--accent-dim);
+  font-size: 1.1rem;
+}
+
+.same-col {
+  text-align: center;
+  width: 3rem;
+}
+
+.same-cell {
+  text-align: center;
+}
+
+.same-tick {
+  color: var(--confirmed-points);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.same-dash {
+  color: var(--accent-dim);
+  font-size: 1rem;
+}
+
+.same-row {
+  background: rgba(3, 229, 11, 0.06);
+}
+
+@media (min-width: 640px) {
+  .pick-cell {
+    font-size: 2rem;
+  }
+
+  .provisional-cell,
+  .confirmed-cell {
+    font-size: 1.75rem;
+  }
+}

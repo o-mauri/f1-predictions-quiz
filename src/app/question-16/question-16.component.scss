@@ -1,0 +1,71 @@
+.podium-box {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+}
+.podium-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.driver-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.podium-1-graphic {
+  background-color: var(--racing-red);
+  width: 95px;
+  height: 50px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.podium-2-graphic {
+  background-color: var(--racing-red);
+  width: 95px;
+  height: 30px;
+  border-top-left-radius: 10px;
+}
+.podium-3-graphic {
+  background-color: var(--racing-red);
+  width: 95px;
+  height: 20px;
+  border-top-right-radius: 10px;
+}
+
+.driver-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.driver-name {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.driver-points {
+  font-family: var(--font-body);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--confirmed-points);
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.answer-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 15px;
+}

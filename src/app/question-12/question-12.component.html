@@ -1,0 +1,81 @@
+<app-question-title
+  [number]="12"
+  [title]="'Boring Weekends?'"
+  [question]="'How many times will the sprint race and the main race have the same winner?'"
+  [description]="'10pts for correct answer, 5pts for one away, 1pt for two away'"
+/>
+
+<section class="picks-section">
+  <div class="answer-grid">
+    <table>
+      <tbody>
+        @for (answer of answers; track answer.player.name) {
+          <tr>
+            <td class="player-cell">
+              <app-player-icon
+                [player]="answer.player"
+                size="med"
+                variant="image"
+                [showName]="false"
+              />
+              <span class="player-name">{{ answer.player.name }}</span>
+            </td>
+            <td class="pick-cell">{{ answer.selectedNumber }}</td>
+            <td class="provisional-cell">{{ answer.provisionalPoints }}</td>
+            <td
+              class="confirmed-cell"
+              [class.confirmed-negative]="
+                answer.confirmedPoints === '' && answer.confirmedNegativePoints !== ''
+              "
+            >
+              {{
+                answer.confirmedPoints === ''
+                  ? answer.confirmedNegativePoints
+                  : answer.confirmedPoints
+              }}
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="results-section">
+  <div class="results-grid">
+    <table>
+      <tbody>
+        @for (sr of sprintRaces; track sr.race.name) {
+          <tr [class.same-row]="isSameWinner(sr)">
+            <td class="race-cell">
+              <app-race-icon [race]="sr.race" [showLabel]="true" size="med" variant="standard" />
+            </td>
+            <td class="winner-cell">
+              @if (sr.sprintWinner; as driver) {
+                <app-driver-photo [driver]="driver" size="sm" variant="circular" />
+                <span class="driver-name">{{ driver.shortName }}</span>
+              } @else {
+                <span class="placeholder">—</span>
+              }
+            </td>
+            <td class="winner-cell">
+              @if (sr.mainRaceWinner; as driver) {
+                <app-driver-photo [driver]="driver" size="sm" variant="circular" />
+                <span class="driver-name">{{ driver.shortName }}</span>
+              } @else {
+                <span class="placeholder">—</span>
+              }
+            </td>
+            <td class="same-cell">
+              @if (isSameWinner(sr)) {
+                <span class="same-tick" aria-label="Same winner">✓</span>
+              } @else {
+                <span class="same-dash">—</span>
+              }
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

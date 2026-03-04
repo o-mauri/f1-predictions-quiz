@@ -1,0 +1,139 @@
+.question-17 {
+  padding: 1rem 0;
+}
+
+.statement-card {
+  background-color: rgba(121, 121, 121, 0.412);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--racing-red-border);
+  margin-bottom: 1rem;
+}
+
+.statement-text {
+  background-color: var(--racing-red);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--racing-red-border);
+  margin-bottom: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.answer-meta {
+  margin-bottom: 0.75rem;
+  padding: 0.25rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.answer-label {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.answer-value {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  &.confirmed {
+    color: var(--confirmed-points);
+  }
+
+  &.provisional {
+    color: var(--provisional-points);
+  }
+}
+
+.picks-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 0.75rem;
+}
+
+.pick-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  background-color: rgba(0, 0, 0, 0.15);
+  border: 2px solid transparent;
+
+  &.correct-answer {
+    border-color: rgba(3, 229, 11, 0.5);
+    box-shadow: 0 0 0 1px rgba(3, 229, 11, 0.2);
+  }
+}
+
+.column-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.pick-title {
+  flex: 0 0 auto;
+}
+
+.icon {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.icon-true {
+  color: var(--text-primary);
+}
+
+.icon-false {
+  color: var(--text-primary);
+}
+
+.player-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.player-pick {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.points-badge {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-left: 0.25rem;
+
+  &.confirmed-points {
+    color: var(--confirmed-points);
+  }
+
+  &.provisional-points {
+    color: var(--provisional-points);
+  }
+}
+
+.empty-hint {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}

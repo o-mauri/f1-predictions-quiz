@@ -1,0 +1,42 @@
+<app-question-title
+  [number]="20"
+  [title]="'The Gamble'"
+  [question]="'Will any driver score a Grand Slam in 2026?'"
+  [description]="'30pts if your driver scores a Grand Slam, -40pts if they do not'"
+/>
+
+<div class="answer-grid">
+  <table>
+    @for (answer of answers; track answer.player.name) {
+      <tr [class.no-pick]="answer.driver === null">
+        <td class="player-icon-cell">
+          <app-player-icon [player]="answer.player" size="large" variant="image" />
+        </td>
+        @if (answer.driver) {
+          <td class="driver-photo-cell">
+            <app-driver-photo [driver]="answer.driver" size="med" variant="circular" />
+          </td>
+          <td class="driver-name-cell">{{ answer.driver.longName }}</td>
+        } @else {
+          <td class="driver-photo-cell driver-photo-cell--empty">
+            <span class="no-pick-placeholder">—</span>
+          </td>
+          <td class="driver-name-cell driver-name-cell--no-pick">No pick</td>
+        }
+        <td class="provisional-points-cell">{{ answer.provisionalPoints }}</td>
+        <td
+          [class]="
+            'confirmed-points-cell ' +
+            (answer.confirmedPoints === '' ? 'confirmed-points-negative' : '')
+          "
+        >
+          {{
+            answer.confirmedPoints === '+0'
+              ? answer.confirmedNegativePoints
+              : answer.confirmedPoints
+          }}
+        </td>
+      </tr>
+    }
+  </table>
+</div>
