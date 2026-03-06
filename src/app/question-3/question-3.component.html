@@ -1,5 +1,15 @@
 <app-question-title [number]="3" [title]="'Just Off the Bubble'" [question]="'Who will finish 4th in the drivers championship?'" [description]="'10pts for correct answer, 5pts for one away, 1pt for two away'" />
 
+<app-results-tab>
+  <app-standings-table [inputData]="driversChampionship" [goldenPosition]="4" [showRange]="[1,7]" [positionPoints]="[
+    { position: 4, points: 10, },
+    { position: 5, points: 5 },
+    { position: 6, points: 1 },
+    { position: 3, points: 5 },
+    { position: 2, points: 1 }
+  ]"></app-standings-table>
+</app-results-tab>
+
 <div class="answer-grid">
   <table>
     @for (answer of answers; track answer.player.name) {

@@ -1,0 +1,118 @@
+.standings-table {
+  width: 100%;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-body);
+  }
+
+  thead tr {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+
+    th {
+      padding: 0.2rem 0.5rem;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: rgba(0, 0, 0, 0.5);
+      text-align: left;
+    }
+  }
+
+  .standings-row {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    &:last-child {
+      border-bottom: none;
+    }
+    transition: background 0.15s;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    &.golden {
+      background: rgba(80, 140, 220, 0.18);
+      border-bottom-color: rgba(80, 140, 220, 0.35);
+
+      .col-pos,
+      .name,
+      .col-pts {
+        color: #1a3a6b;
+        font-weight: 700;
+      }
+
+      &:hover {
+        background: rgba(80, 140, 220, 0.26);
+      }
+    }
+
+    td {
+      padding: 0.15rem 0.5rem;
+      vertical-align: middle;
+    }
+  }
+
+  .col-pos {
+    width: 2rem;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.45);
+    font-size: 0.8rem;
+  }
+
+  .col-name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .col-pts {
+    width: 3rem;
+    text-align: right;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: #1a1a1a;
+    font-weight: 700;
+  }
+
+  .col-quiz-pts {
+    width: 3.5rem;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .quiz-pts-badge {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+
+    &.provisional {
+      color: var(--provisional-points);
+    }
+
+    &.confirmed {
+      color: var(--confirmed-points);
+    }
+  }
+
+  .name-stack {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .name {
+    font-size: 0.9rem;
+    color: #1a1a1a;
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+  .sub-name {
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+  }
+}

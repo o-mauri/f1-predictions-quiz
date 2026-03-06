@@ -1,5 +1,15 @@
 <app-question-title [number]="2" [title]="'Best of the rest of the rest of the rest...'" [question]="'Which team will finish 6th in the constructors championship?'" [description]="'10pts for correct answer, 5pts for one away, 1pt for two away'" />
 
+<app-results-tab>
+  <app-standings-table [driverType]="false" [inputData]="constructors" [goldenPosition]="6" [showRange]="[1,9]" [positionPoints]="[
+    { position: 6, points: 10, },
+    { position: 7, points: 5 },
+    { position: 8, points: 1 },
+    { position: 5, points: 5 },
+    { position: 4, points: 1 }
+  ]"></app-standings-table>
+</app-results-tab>
+
 <div class="answer-grid">
   <table>
     @for (answer of answers; track answer.player.name) {

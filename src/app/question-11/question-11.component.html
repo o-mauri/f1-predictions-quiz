@@ -1,5 +1,20 @@
 <app-question-title [number]="11" [title]="'Sprint World Champion'" [question]="'Who will score the most points in the sprint races?'" [description]="'25pts for 1st, 18pts for 2nd, 15pts for 3rd etc...'" />
 
+<app-results-tab>
+  <app-standings-table [inputData]="sprintStandings" [goldenPosition]="1" [showRange]="[1,10]" [positionPoints]="[
+    { position: 1, points: 25, },
+    { position: 2, points: 18 },
+    { position: 3, points: 15 },
+    { position: 4, points: 12 },
+    { position: 5, points: 10 },
+    { position: 6, points: 8, },
+    { position: 7, points: 6 },
+    { position: 8, points: 4 },
+    { position: 9, points: 2 },
+    { position: 10, points: 1 }
+  ]"></app-standings-table>
+</app-results-tab>
+
 <div class="answer-grid">
   <table>
     @for (answer of answers; track answer.player.name) {

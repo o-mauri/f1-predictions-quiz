@@ -1,5 +1,13 @@
 <app-question-title [number]="1" [title]="'World Champion'" [question]="'Who will win the drivers world championship?'" [description]="'10pts for correct answer, 5pts for one away, 1pt for two away'" />
 
+<app-results-tab>
+  <app-standings-table [inputData]="driversChampionship" [goldenPosition]="1" [showRange]="[1,5]" [positionPoints]="[
+    { position: 1, points: 10, },
+    { position: 2, points: 5 },
+    { position: 3, points: 1 }
+  ]"></app-standings-table>
+</app-results-tab>
+
 <div class="answer-grid">
   <table>
     @for (answer of answers; track answer.player.name) {

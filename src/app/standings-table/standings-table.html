@@ -1,0 +1,42 @@
+
+<div class="standings-table">
+  <table>
+    <thead>
+      <tr>
+        <th class="col-pos">POS</th>
+        <th class="col-name">{{ driverType() ? 'DRIVER' : 'CONSTRUCTOR' }}</th>
+        <th class="col-pts">{{ countLabel() }}</th>
+        @if (positionPoints()) { <th class="col-quiz-pts"></th> }
+      </tr>
+    </thead>
+    <tbody>
+      @for (entry of visibleData(); track entry.position) {
+        <tr class="standings-row" [class.golden]="entry.position === goldenPosition()">
+          <td class="col-pos">{{ entry.position }}</td>
+          <td class="col-name">
+            @if (driverType() && entry.row.driver) {
+              <app-driver-photo [driver]="entry.row.driver" size="sm" variant="square" />
+              <div class="name-stack">
+                <span class="name">{{ entry.row.driver.shortName }}</span>
+                <span class="sub-name">{{ entry.row.driver.team.name }}</span>
+              </div>
+            } @else if (!driverType() && entry.row.team) {
+              <app-team-icon [team]="entry.row.team" size="sm" variant="square" />
+              <span class="name">{{ entry.row.team.name }}</span>
+            }
+          </td>
+          <td class="col-pts">{{ entry.row.count }}</td>
+          @if (positionPoints()) {
+            <td class="col-quiz-pts">
+              @if (positionPointsMap().get(entry.position); as award) {
+                <span class="quiz-pts-badge" [class.confirmed]="award.confirmed" [class.provisional]="!award.confirmed">
+                  +{{ award.points }}
+                </span>
+              }
+            </td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

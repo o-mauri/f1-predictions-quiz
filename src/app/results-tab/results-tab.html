@@ -1,0 +1,12 @@
+<div class="selection-outline">
+    <button class="selection-clicker" (click)="trayOpen = !trayOpen">
+        <mat-icon>arrow_drop_{{ trayOpen ? 'up' : 'down' }}</mat-icon>
+        <div>View Standings</div>
+        <mat-icon>arrow_drop_{{ trayOpen ? 'up' : 'down' }}</mat-icon>
+    </button>
+    <div class="tray" [class.tray--open]="trayOpen">
+        <div class="tray-inner">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

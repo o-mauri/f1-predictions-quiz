@@ -6,6 +6,9 @@ import { TeamIconComponent } from '../team-icon/team-icon.component';
 import { Player, Team } from '../../types/main-types';
 import { players } from '../../types/players';
 import { Teams } from '../../types/teams';
+import { ResultsTab } from '../results-tab/results-tab';
+import { StandingsTable } from '../standings-table/standings-table';
+import { constructorsStandings } from '../../assets/data/data';
 
 interface Question2Answer {
   player: Player;
@@ -18,11 +21,14 @@ interface Question2Answer {
 @Component({
   selector: 'app-question-2',
   standalone: true,
-  imports: [QuestionTitleComponent, TeamIconComponent, PlayerIconComponent],
+  imports: [QuestionTitleComponent, TeamIconComponent, PlayerIconComponent, ResultsTab, StandingsTable],
   templateUrl: './question-2.component.html',
   styleUrl: './question-2.component.scss',
 })
 export class Question2Component {
+
+  public constructors = constructorsStandings;
+
   readonly answers: Question2Answer[] = [
     {
       player: players.kundan,

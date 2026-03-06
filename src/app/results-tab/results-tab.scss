@@ -1,0 +1,39 @@
+.selection-clicker{
+    background-color: transparent;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    font-family: var(--font-display);
+    color: var(--racing-red);
+    width: 100%;
+}
+
+.selection-outline{
+    border-radius: 5px;
+    border: 2px solid var(--racing-red-border);
+    background-color: rgb(175, 168, 168);
+    margin-bottom: 20px;
+    
+}
+
+.tray {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+
+    &.tray--open {
+        grid-template-rows: 1fr;
+    }
+}
+
+.tray-inner {
+    overflow: hidden;
+    padding: 0 10px;
+    transition: padding 0.3s ease;
+
+    .tray--open & {
+        padding: 10px;
+    }
+}

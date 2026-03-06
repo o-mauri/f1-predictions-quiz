@@ -5,6 +5,9 @@ import { Drivers } from '../../types/drivers';
 import { QuestionTitleComponent } from '../question-title/question-title.component';
 import { PlayerIconComponent } from '../player-icon/player-icon.component';
 import { DriverPhotoComponent } from '../driver-photo/driver-photo.component';
+import { StandingsTable } from '../standings-table/standings-table';
+import { ResultsTab } from '../results-tab/results-tab';
+import { lapCount } from '../../assets/data/data';
 
 interface Question5Answer {
   player: Player;
@@ -18,9 +21,11 @@ interface Question5Answer {
   standalone: true,
   templateUrl: './question-5.component.html',
   styleUrl: './question-5.component.scss',
-  imports: [QuestionTitleComponent, PlayerIconComponent, DriverPhotoComponent],
+  imports: [QuestionTitleComponent, PlayerIconComponent, DriverPhotoComponent, StandingsTable, ResultsTab],
 })
 export class Question5Component {
+  public lapCount = lapCount;
+
   readonly answers: Question5Answer[] = [
     {
       player: players.kundan,

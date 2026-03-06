@@ -1,4 +1,5 @@
 import { Component, signal, computed } from '@angular/core';
+import { MatIcon, MatIconModule } from '@angular/material/icon'
 import { TotalScoresComponent } from './total-scores/total-scores.component';
 import { Question1Component } from './question-1/question-1.component';
 import { Question2Component } from './question-2/question-2.component';
@@ -48,7 +49,7 @@ const TOTAL_QUESTIONS = 20;
     Question17Component,
     Question18Component,
     Question19Component,
-    Question20Component,
+    Question20Component
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
