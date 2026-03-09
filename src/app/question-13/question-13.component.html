@@ -20,14 +20,12 @@
             <span class="pit-count-emoji">🛑</span>
           }
         </td>
-        <td class="provisional-points-cell">{{ answer.provisionalPoints }}</td>
+        <td class="provisional-points-cell">{{ fmt(getScore(answer.player).provisional) }}</td>
         <td
-          [class]="
-            'confirmed-points-cell ' +
-            (answer.confirmedPoints === '' ? 'confirmed-points-negative' : '')
-          "
+          class="confirmed-points-cell"
+          [class.confirmed-points-negative]="getScore(answer.player).confirmed === null"
         >
-          {{ answer.confirmedPoints }}
+          {{ fmt(getScore(answer.player).confirmed) }}
         </td>
       </tr>
     }

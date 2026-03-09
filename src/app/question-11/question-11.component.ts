@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { players } from '../../types/players';
+import { players, getPlayerKey } from '../../types/players';
 import { Drivers } from '../../types/drivers';
 import { Driver, Player } from '../../types/main-types';
 import { PlayerIconComponent } from '../player-icon/player-icon.component';
@@ -8,13 +8,11 @@ import { QuestionTitleComponent } from '../question-title/question-title.compone
 import { ResultsTab } from '../results-tab/results-tab';
 import { StandingsTable } from '../standings-table/standings-table';
 import { sprintStandings } from '../../assets/data/data';
+import { questionScores, QuestionScore } from '../../assets/data/scores';
 
 interface Question11Answer {
   player: Player;
   driver: Driver;
-  provisionalPoints: string;
-  confirmedNegativePoints: string;
-  confirmedPoints: string;
 }
 
 @Component({
@@ -27,55 +25,22 @@ interface Question11Answer {
 export class Question11Component {
   public sprintStandings = sprintStandings;
 
+  getScore(player: Player): QuestionScore {
+    return questionScores[11][getPlayerKey(player)];
+  }
+
+  fmt(n: number | null): string {
+    if (n === null) return '';
+    return n >= 0 ? `+${n}` : `${n}`;
+  }
+
   readonly answers: Question11Answer[] = [
-    {
-      player: players.kundan,
-      driver: Drivers.kimiAntonelli,
-      provisionalPoints: '+0',
-      confirmedNegativePoints: '',
-      confirmedPoints: '',
-    },
-    {
-      player: players.anna,
-      driver: Drivers.kimiAntonelli,
-      provisionalPoints: '+0',
-      confirmedNegativePoints: '',
-      confirmedPoints: '',
-    },
-    {
-      player: players.jazz,
-      driver: Drivers.landoNorris,
-      provisionalPoints: '+0',
-      confirmedNegativePoints: '',
-      confirmedPoints: '',
-    },
-    {
-      player: players.omar,
-      driver: Drivers.georgeRussell,
-      provisionalPoints: '+0',
-      confirmedNegativePoints: '',
-      confirmedPoints: '',
-    },
-    {
-      player: players.joe,
-      driver: Drivers.maxVerstappen,
-      provisionalPoints: '+0',
-      confirmedNegativePoints: '',
-      confirmedPoints: '',
-    },
-    {
-      player: players.michael,
-      driver: Drivers.oscarPiastri,
-      provisionalPoints: '+0',
-      confirmedNegativePoints: '',
-      confirmedPoints: '',
-    },
-    {
-      player: players.koli,
-      driver: Drivers.lewisHamilton,
-      provisionalPoints: '+0',
-      confirmedNegativePoints: '',
-      confirmedPoints: '',
-    },
+    { player: players.kundan,  driver: Drivers.kimiAntonelli },
+    { player: players.anna,    driver: Drivers.kimiAntonelli },
+    { player: players.jazz,    driver: Drivers.landoNorris },
+    { player: players.omar,    driver: Drivers.georgeRussell },
+    { player: players.joe,     driver: Drivers.maxVerstappen },
+    { player: players.michael, driver: Drivers.oscarPiastri },
+    { player: players.koli,    driver: Drivers.lewisHamilton },
   ];
 }

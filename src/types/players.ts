@@ -60,3 +60,8 @@ export const players = {
 } as const satisfies Record<string, Player>;
 
 export type PlayerKey = keyof typeof players;
+
+/** Returns the key (e.g. 'kundan') for a given Player object. */
+export function getPlayerKey(player: Player): PlayerKey {
+  return (Object.entries(players) as [PlayerKey, Player][]).find(([, p]) => p === player)![0];
+}

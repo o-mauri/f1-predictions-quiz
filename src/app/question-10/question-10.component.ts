@@ -89,7 +89,7 @@ export class Question10Component {
       race2pos: '',
       race2pts: 0,
       race3: Races.australia,
-      race3pos: '',
+      race3pos: '16th',
       race3pts: 0,
       race4: Races.miami,
       race4pos: '',

@@ -26,7 +26,7 @@
           }
         </td>
         <td class="confirmed-points-cell confirmed-points-negative">
-          {{ answer.confirmedNegativePoints }}
+          {{ fmtNeg(getScore(answer.player).confirmed) }}
         </td>
       </tr>
     }
