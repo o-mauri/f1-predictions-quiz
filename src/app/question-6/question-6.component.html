@@ -15,8 +15,8 @@
         <div class="player-name-cell">{{ answer.player.name }}</div>
       </div>
       <div class="answer-header-right">
-        <div class="provisional-points-cell">{{ answer.provisionalPoints }}</div>
-        <div [class]="'confirmed-points-cell ' + (answer.confirmedPoints === '' ? 'confirmed-points-negative' : '')">{{ answer.confirmedPoints === '' ? answer.confirmedNegativePoints : answer.confirmedPoints }}</div>
+        <div class="provisional-points-cell">{{ fmt(getScore(answer.player).provisional) }}</div>
+        <div class="confirmed-points-cell" [class.confirmed-points-negative]="getScore(answer.player).confirmed === null">{{ fmt(getScore(answer.player).confirmed) }}</div>
       </div>
     </div>
     <div class="driver-icon-row">

@@ -1,18 +1,16 @@
 import { Component } from '@angular/core';
 import { Driver, Player } from '../../types/main-types';
-import { players } from '../../types/players';
+import { players, getPlayerKey } from '../../types/players';
 import { Drivers } from '../../types/drivers';
 import { QuestionTitleComponent } from '../question-title/question-title.component';
 import { PlayerIconComponent } from '../player-icon/player-icon.component';
 import { DriverPhotoComponent } from '../driver-photo/driver-photo.component';
 import { CommonModule } from '@angular/common';
+import { questionScores, QuestionScore } from '../../assets/data/scores';
 
 interface Question6Answer {
   player: Player;
   drivers: Driver[];
-  provisionalPoints: string;
-  confirmedNegativePoints: string;
-  confirmedPoints: string;
 }
 
 @Component({
@@ -30,7 +28,16 @@ export class Question6Component {
     return this.allDrivers.filter((d) => !this.removeDrivers.includes(d));
   }
 
-  podiumDrivers: Driver[] = [];
+  podiumDrivers: Driver[] = [Drivers.georgeRussell, Drivers.kimiAntonelli, Drivers.charlesLeclerc];
+
+  getScore(player: Player): QuestionScore {
+    return questionScores[6][getPlayerKey(player)];
+  }
+
+  fmt(n: number | null): string {
+    if (n === null) return '';
+    return n >= 0 ? `+${n}` : `${n}`;
+  }
 
   readonly answers: Question6Answer[] = [
     {
@@ -46,9 +53,6 @@ export class Question6Component {
         Drivers.maxVerstappen,
         Drivers.isackHadjar,
       ],
-      provisionalPoints: '-27',
-      confirmedNegativePoints: '',
-      confirmedPoints: '',
     },
     {
       player: players.anna,
@@ -66,9 +70,6 @@ export class Question6Component {
         Drivers.maxVerstappen,
         Drivers.isackHadjar,
       ],
-      provisionalPoints: '-36',
-      confirmedNegativePoints: '',
-      confirmedPoints: '',
     },
     {
       player: players.jazz,
@@ -86,9 +87,6 @@ export class Question6Component {
         Drivers.maxVerstappen,
         Drivers.isackHadjar,
       ],
-      provisionalPoints: '-36',
-      confirmedNegativePoints: '',
-      confirmedPoints: '',
     },
     {
       player: players.omar,
@@ -105,9 +103,6 @@ export class Question6Component {
         Drivers.maxVerstappen,
         Drivers.isackHadjar,
       ],
-      provisionalPoints: '-33',
-      confirmedNegativePoints: '',
-      confirmedPoints: '',
     },
     {
       player: players.joe,
@@ -123,9 +118,6 @@ export class Question6Component {
         Drivers.kimiAntonelli,
         Drivers.maxVerstappen,
       ],
-      provisionalPoints: '-30',
-      confirmedNegativePoints: '',
-      confirmedPoints: '',
     },
     {
       player: players.michael,
@@ -139,9 +131,6 @@ export class Question6Component {
         Drivers.kimiAntonelli,
         Drivers.maxVerstappen,
       ],
-      provisionalPoints: '-24',
-      confirmedNegativePoints: '',
-      confirmedPoints: '',
     },
     {
       player: players.koli,
@@ -161,9 +150,6 @@ export class Question6Component {
         Drivers.maxVerstappen,
         Drivers.isackHadjar,
       ],
-      provisionalPoints: '-42',
-      confirmedNegativePoints: '',
-      confirmedPoints: '',
     },
   ];
 }

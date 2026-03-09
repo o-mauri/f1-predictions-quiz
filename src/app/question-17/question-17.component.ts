@@ -46,7 +46,7 @@ export class Question17Component {
     },
     {
       statement: 'Audi scores more points than cadillac in 2026',
-      answer: false,
+      answer: true,
       confirmed: false,
     },
     {

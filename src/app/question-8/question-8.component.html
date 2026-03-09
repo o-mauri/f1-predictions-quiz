@@ -15,12 +15,12 @@
         <div class="player-name-cell">{{ answer.player.name }}</div>
       </div>
       <div class="answer-header-right">
-        <div class="confirmed-points-cell">{{ answer.confirmedPoints }}</div>
+        <div class="confirmed-points-cell">{{ fmt(getScore(answer.player).confirmed) }}</div>
       </div>
     </div>
     <div class="race-row">
       <div class="race-group">
-        <app-race-icon [race]="answer.race1" [showLabel]="true" size="large" variant="standard" />
+        <app-race-icon [race]="answer.race1" [showLabel]="true" size="large" variant="standard" [surfaceText]="answer.text1"></app-race-icon>
         <div class="stats-group">
           <div class="stat-item">
             <div class="stat-item-label">Red Flags</div>
@@ -43,7 +43,7 @@
         </div>
       </div>
       <div class="race-group">
-        <app-race-icon [race]="answer.race2" [showLabel]="true" size="large" variant="standard" />
+        <app-race-icon [race]="answer.race2" [showLabel]="true" size="large" variant="standard" [surfaceText]="answer.text2" />
         <div class="stats-group">
           <div class="stat-item">
             <div class="stat-item-label">Red Flags</div>

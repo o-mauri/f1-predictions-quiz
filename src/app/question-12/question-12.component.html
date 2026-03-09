@@ -21,18 +21,12 @@
               <span class="player-name">{{ answer.player.name }}</span>
             </td>
             <td class="pick-cell">{{ answer.selectedNumber }}</td>
-            <td class="provisional-cell">{{ answer.provisionalPoints }}</td>
+            <td class="provisional-cell">{{ fmt(getScore(answer.player).provisional) }}</td>
             <td
               class="confirmed-cell"
-              [class.confirmed-negative]="
-                answer.confirmedPoints === '' && answer.confirmedNegativePoints !== ''
-              "
+              [class.confirmed-negative]="(getScore(answer.player).confirmed ?? 0) < 0"
             >
-              {{
-                answer.confirmedPoints === ''
-                  ? answer.confirmedNegativePoints
-                  : answer.confirmedPoints
-              }}
+              {{ fmt(getScore(answer.player).confirmed) }}
             </td>
           </tr>
         }
