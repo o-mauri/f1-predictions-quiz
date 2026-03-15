@@ -41,8 +41,8 @@ export class Question17Component {
     },
     {
       statement: 'There will be a new 1st time race winner in 2026',
-      answer: false,
-      confirmed: false,
+      answer: true,
+      confirmed: true,
     },
     {
       statement: 'Audi scores more points than cadillac in 2026',

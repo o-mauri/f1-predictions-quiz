@@ -14,32 +14,32 @@ export interface standing {
 export const driversChampionshiop: standing[] = [
     {
         driver: Drivers.georgeRussell,
-        count: 25,
+        count: 51,
         priority: 1
     },
     {
         driver: Drivers.kimiAntonelli,
-        count: 18,
+        count: 47,
         priority: 1
     },
     {
         driver: Drivers.lewisHamilton,
-        count: 12,
+        count: 33,
         priority: 1
     },
     {
         driver: Drivers.charlesLeclerc,
-        count: 15,
+        count: 34,
         priority: 1
     },
     {
         driver: Drivers.landoNorris,
-        count: 10,
+        count: 15,
         priority: 1
     },
     {
         driver: Drivers.oscarPiastri,
-        count: 0,
+        count: 3,
         priority: 8
     },
     {
@@ -49,13 +49,13 @@ export const driversChampionshiop: standing[] = [
     },
     {
         driver: Drivers.isackHadjar,
-        count: 0,
-        priority: 7
+        count: 4,
+        priority: 2
     },
     {
         driver: Drivers.liamLawson,
-        count: 0,
-        priority: 3
+        count: 8,
+        priority: 1
     },
     {
         driver: Drivers.arvidLindblad,
@@ -65,17 +65,17 @@ export const driversChampionshiop: standing[] = [
     {
         driver: Drivers.fernandoAlonso,
         count: 0,
-        priority: 10
+        priority: 6
     },
     {
         driver: Drivers.lanceStroll,
         count: 0,
-        priority: 12
+        priority: 7
     },
     {
         driver: Drivers.nicoHulkenberg,
         count: 0,
-        priority: 9
+        priority: 2
     },
     {
         driver: Drivers.gabrielBortoleto,
@@ -89,38 +89,38 @@ export const driversChampionshiop: standing[] = [
     },
     {
         driver: Drivers.oliverBearman,
-        count: 6,
+        count: 17,
         priority: 1
     },
     {
         driver: Drivers.pierreGasly,
-        count: 1,
+        count: 9,
         priority: 1
     },
     {
         driver: Drivers.francoColapinto,
-        count: 0,
+        count: 1,
         priority: 4
     },
     {
         driver: Drivers.valtteriBottas,
         count: 0,
-        priority: 11
+        priority: 4
     },
     {
         driver: Drivers.sergioPerez,
         count: 0,
-        priority: 6
+        priority: 5
     },
     {
         driver: Drivers.carlosSainz,
-        count: 0,
+        count: 2,
         priority: 5
     },
     {
         driver: Drivers.alexanderAlbon,
         count: 0,
-        priority: 2
+        priority: 3
     },
 ]
 
@@ -128,13 +128,13 @@ export const driversChampionshiop: standing[] = [
 export const constructorsStandings: standing[] = [
     {
         team: Teams.alpine,
-        count: 1,
+        count: 10,
         priority: 1
     },
     {
         team: Teams.astonMartin,
         count: 0,
-        priority: 3
+        priority: 2
     },
     {
         team: Teams.audi,
@@ -144,75 +144,75 @@ export const constructorsStandings: standing[] = [
     {
         team: Teams.cadillac,
         count: 0,
-        priority: 2
+        priority: 1
     },
     {
         team: Teams.ferrari,
-        count: 27,
+        count: 67,
         priority: 1
     },
     {
         team: Teams.haas,
-        count: 6,
+        count: 17,
         priority: 1
     },
     {
         team: Teams.mclaren,
-        count: 10,
+        count: 18,
         priority: 1
     },
     {
         team: Teams.mercedes,
-        count: 43,
+        count: 98,
         priority: 1
     },
     {
         team: Teams.racingBulls,
-        count: 4,
-        priority: 1
+        count: 12,
+        priority: 2
     },
     {
         team: Teams.redBull,
-        count: 8,
-        priority: 1
-    },
-    {
-        team: Teams.williams,
-        count: 0,
-        priority: 1
-    }
-]
-
-///// F1.5 CHAMPIONSHIP /////////////////////////////////////////////////////////////////////////////////////////////////////
-export const f15standings: standing[] = [
-    {
-        driver: Drivers.georgeRussell,
-        count: 0,
-        priority: 999
-    },
-    {
-        driver: Drivers.kimiAntonelli,
-        count: 0,
-        priority: 999
-    },
-    {
-        driver: Drivers.lewisHamilton,
         count: 12,
         priority: 1
     },
     {
+        team: Teams.williams,
+        count: 2,
+        priority: 2
+    }
+]
+
+///// F1.5 CHAMPIONSHIP /////////////////////////////////////////////////////////////////////////////////////////////////////
+export const f15standings: standing[] =  [
+    {
+        driver: Drivers.georgeRussell,
+        count: 0,
+        priority: 999999
+    },
+    {
+        driver: Drivers.kimiAntonelli,
+        count: 0,
+        priority: 999999
+    },
+    {
+        driver: Drivers.lewisHamilton,
+        count: 33,
+        priority: 1
+    },
+    {
         driver: Drivers.charlesLeclerc,
-        count: 15,
+        count: 34,
         priority: 1
     },
     {
         driver: Drivers.landoNorris,
-        count: 10,
+        count: 15,
         priority: 1
     },
     {
         driver: Drivers.oscarPiastri,
-        count: 0,
+        count: 3,
         priority: 8
     },
     {
@@ -222,13 +222,13 @@ export const f15standings: standing[] = [
     },
     {
         driver: Drivers.isackHadjar,
-        count: 0,
-        priority: 7
+        count: 4,
+        priority: 2
     },
     {
         driver: Drivers.liamLawson,
-        count: 0,
-        priority: 3
+        count: 8,
+        priority: 1
     },
     {
         driver: Drivers.arvidLindblad,
@@ -238,17 +238,17 @@ export const f15standings: standing[] = [
     {
         driver: Drivers.fernandoAlonso,
         count: 0,
-        priority: 10
+        priority: 6
     },
     {
         driver: Drivers.lanceStroll,
         count: 0,
-        priority: 12
+        priority: 7
     },
     {
         driver: Drivers.nicoHulkenberg,
         count: 0,
-        priority: 9
+        priority: 2
     },
     {
         driver: Drivers.gabrielBortoleto,
@@ -262,63 +262,62 @@ export const f15standings: standing[] = [
     },
     {
         driver: Drivers.oliverBearman,
-        count: 6,
+        count: 17,
         priority: 1
     },
     {
         driver: Drivers.pierreGasly,
-        count: 1,
+        count: 9,
         priority: 1
     },
     {
         driver: Drivers.francoColapinto,
-        count: 0,
+        count: 1,
         priority: 4
     },
     {
         driver: Drivers.valtteriBottas,
         count: 0,
-        priority: 11
+        priority: 4
     },
     {
         driver: Drivers.sergioPerez,
         count: 0,
-        priority: 6
+        priority: 5
     },
     {
         driver: Drivers.carlosSainz,
-        count: 0,
+        count: 2,
         priority: 5
     },
     {
         driver: Drivers.alexanderAlbon,
         count: 0,
-        priority: 2
+        priority: 3
     },
 ]
-
 
 //// LAP COUNT /////////////////////////////////////////////////////////////////////////
 
 export const lapCount: standing[] = [
         {
         driver: Drivers.georgeRussell,
-        count: 58,
+        count: 114,
         priority: 1
     },
     {
         driver: Drivers.kimiAntonelli,
-        count: 58,
+        count: 114,
         priority: 1
     },
     {
         driver: Drivers.lewisHamilton,
-        count: 58,
+        count: 114,
         priority: 1
     },
     {
         driver: Drivers.charlesLeclerc,
-        count: 58,
+        count: 114,
         priority: 1
     },
     {
@@ -333,37 +332,37 @@ export const lapCount: standing[] = [
     },
     {
         driver: Drivers.maxVerstappen,
-        count: 58,
+        count: 103,
         priority: 1
     },
     {
         driver: Drivers.isackHadjar,
-        count: 10,
+        count: 66,
         priority: 1
     },
     {
         driver: Drivers.liamLawson,
-        count: 57,
+        count: 113,
         priority: 1
     },
     {
         driver: Drivers.arvidLindblad,
-        count: 57,
+        count: 112,
         priority: 1
     },
     {
         driver: Drivers.fernandoAlonso,
-        count: 21,
+        count: 53,
         priority: 1
     },
     {
         driver: Drivers.lanceStroll,
-        count: 43,
+        count: 52,
         priority: 1
     },
     {
         driver: Drivers.nicoHulkenberg,
-        count: 0,
+        count: 55,
         priority: 1
     },
     {
@@ -373,37 +372,37 @@ export const lapCount: standing[] = [
     },
     {
         driver: Drivers.estebanOcon,
-        count: 57,
+        count: 112,
         priority: 1
     },
     {
         driver: Drivers.oliverBearman,
-        count: 57,
+        count: 113,
         priority: 1
     },
     {
         driver: Drivers.pierreGasly,
-        count: 57,
+        count: 113,
         priority: 1
     },
     {
         driver: Drivers.francoColapinto,
-        count: 56,
+        count: 111,
         priority: 1
     },
     {
         driver: Drivers.valtteriBottas,
-        count: 15,
+        count: 70,
         priority: 1
     },
     {
         driver: Drivers.sergioPerez,
-        count: 55,
+        count: 110,
         priority: 1
     },
     {
         driver: Drivers.carlosSainz,
-        count: 56,
+        count: 111,
         priority: 1
     },
     {
@@ -418,32 +417,32 @@ export const lapCount: standing[] = [
 export const sprintStandings: standing[] = [
         {
         driver: Drivers.georgeRussell,
-        count: 0,
+        count: 8,
         priority: 1
     },
     {
         driver: Drivers.kimiAntonelli,
-        count: 0,
+        count: 4,
         priority: 1
     },
     {
         driver: Drivers.lewisHamilton,
-        count: 0,
+        count: 6,
         priority: 1
     },
     {
         driver: Drivers.charlesLeclerc,
-        count: 0,
+        count: 7,
         priority: 1
     },
     {
         driver: Drivers.landoNorris,
-        count: 0,
+        count: 5,
         priority: 1
     },
     {
         driver: Drivers.oscarPiastri,
-        count: 0,
+        count: 3,
         priority: 1
     },
     {
@@ -458,7 +457,7 @@ export const sprintStandings: standing[] = [
     },
     {
         driver: Drivers.liamLawson,
-        count: 0,
+        count: 2,
         priority: 1
     },
     {
@@ -493,7 +492,7 @@ export const sprintStandings: standing[] = [
     },
     {
         driver: Drivers.oliverBearman,
-        count: 0,
+        count: 1,
         priority: 1
     },
     {

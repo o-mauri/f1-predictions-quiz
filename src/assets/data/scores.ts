@@ -63,30 +63,38 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
 
   // ── Q2: Constructors 6th ───────────────────────────────────────────────────
   2: {
-    kundan:  s(5),
+    kundan:  s(1),
     anna:    s(0),
     jazz:    s(0),
-    omar:    s(5),
+    omar:    s(1),
     joe:     s(10),
-    michael: s(1),
+    michael: s(5),
     koli:    s(0),
   },
 
   // ── Q3: Drivers 4th ────────────────────────────────────────────────────────
   3: {
-    kundan:  s(1),
+    kundan:  s(0),
     anna:    s(0),
     jazz:    s(0),
     omar:    s(10),
-    joe:     s(5),
+    joe:     s(1),
     michael: s(5),
     koli:    s(0),
   },
 
   // ── Q4: Most DOTD awards ───────────────────────────────────────────────────
-  4: z(),
+  4: {
+    kundan:  s(0),
+    anna:    s(0),
+    jazz:    s(0),
+    omar:    s(3),
+    joe:     s(3),
+    michael: s(0),
+    koli:    s(0),
+  },
 
-  // ── Q5: Most laps led ──────────────────────────────────────────────────────
+  // ── Q5: Most laps raced ──────────────────────────────────────────────────────
   5: {
     kundan:  s(25),
     anna:    s(0),
@@ -99,24 +107,24 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
 
   // ── Q6: Every Podium driver ────────────────────────────────────────────────
   6: {
-    kundan:  s(-18, 15),
-    anna:    s(-27,15),
-    jazz:    s(-27,15),
-    omar:    s(-24,15),
-    joe:     s(-21,15),
-    michael: s(-15,15),
-    koli:    s(-33,15),
+    kundan:  s(-15, 20),
+    anna:    s(-24,20),
+    jazz:    s(-24,20),
+    omar:    s(-21,20),
+    joe:     s(-18,20),
+    michael: s(-12,20),
+    koli:    s(-30,20),
   },
 
   // ── Q7: Every Q1 elimination ───────────────────────────────────────────────
   7: {
-    kundan:  s(-30,14),
-    anna:    s(-27,6),
-    jazz:    s(-36,6),
-    omar:    s(-36,22),
-    joe:     s(-30,22),
-    michael: s(-27,-2),
-    koli:    s(-21,-10),
+    kundan:  s(-27,19),
+    anna:    s(-24,11),
+    jazz:    s(-33,11),
+    omar:    s(-33,27),
+    joe:     s(-27,27),
+    michael: s(-12,-5),
+    koli:    s(-21,-13),
   },
 
   // ── Q8: Most chaotic race weekends ─────────────────────────────────────────
@@ -134,9 +142,9 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
   9: {
     kundan:  c(-0),
     anna:    c(-0),
-    jazz:    c(-5),
+    jazz:    c(-20),
     omar:    c(-0),
-    joe:     c(-5),
+    joe:     c(-20),
     michael: c(-0),
     koli:    c(-0),
   },
@@ -145,7 +153,15 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
   10: z(),
 
   // ── Q11: Sprint World Champion ─────────────────────────────────────────────
-  11: z(),
+  11: {
+    kundan:  c(10),
+    anna:    c(10),
+    jazz:    c(12),
+    omar:    c(25),
+    joe:     c(2),
+    michael: c(8),
+    koli:    c(15),
+  },
 
   // ── Q12: Sprint/main race same winner count ────────────────────────────────
   12: {
@@ -163,12 +179,12 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
 
   // ── Q14: Team mate battles (sub-scores / +5 badges in component) ───────────
   14: {
-    kundan:  s(10),
-    anna:    s(10),
-    jazz:    s(10),
-    omar:    s(10),
-    joe:     s(15),
-    michael: s(15),
+    kundan:  s(20),
+    anna:    s(20),
+    jazz:    s(15),
+    omar:    s(20),
+    joe:     s(20),
+    michael: s(25),
     koli:    s(10),
   },
 
@@ -188,13 +204,13 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
 
   // ── Q17: True or False ─────────────────────────────────────────────────────
   17: {
-    kundan:  s(20),
-    anna:    s(15),
-    jazz:    s(15),
-    omar:    s(10),
-    joe:     s(15),
-    michael: s(5),
-    koli:    s(10),
+    kundan:  s(15),
+    anna:    s(15,5),
+    jazz:    s(15,5),
+    omar:    s(10,5),
+    joe:     s(15,5),
+    michael: s(5,5),
+    koli:    s(10,5),
   },
 
   // ── Q18: Wet races (interRaces/wetRaces arrays in component) ───────────────
@@ -202,13 +218,13 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
 
   // ── Q19: F1.5 Champion ─────────────────────────────────────────────────────
   19: {
-    kundan:  s(15),
-    anna:    s(1),
+    kundan:  s(12),
+    anna:    s(0),
     jazz:    s(0),
     omar:    s(0),
     joe:     s(0),
     michael: s(25),
-    koli:    s(2),
+    koli:    s(0),
   },
 
   // ── Q20: Grand Slam gamble ─────────────────────────────────────────────────

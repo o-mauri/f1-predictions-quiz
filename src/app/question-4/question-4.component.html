@@ -6,7 +6,16 @@
     <tr>
       <td class="player-icon-cell"><app-player-icon [player]="answer.player" size="large" variant="image" /></td>
       <td class="driver-photo-cell"><app-driver-photo [driver]="answer.driver" size="med" variant="circular" /></td>
-      <td class="driver-name-cell">{{ answer.driver.longName }}</td>
+      <td class="driver-name-cell">
+        <span class="driver-name">{{ answer.driver.longName }}</span>
+        @if (answer.races.length > 0) {
+          <div class="race-icons">
+            @for (race of answer.races; track race.name) {
+              <app-race-icon [race]="race" [showLabel]="false" size="sm" variant="square" />
+            }
+          </div>
+        }
+      </td>
       <td class="provisional-points-cell">{{ fmt(getScore(answer.player).provisional) }}</td>
       <td class="confirmed-points-cell" [class.confirmed-points-negative]="getScore(answer.player).confirmed === null">{{ fmt(getScore(answer.player).confirmed) }}</td>
     </tr>

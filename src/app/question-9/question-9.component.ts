@@ -43,9 +43,9 @@ export class Question9Component {
   readonly answers: Question9Answer[] = [
     { player: players.kundan,  team: Teams.ferrari,  dnfs: [], doubleDnfs: [] },
     { player: players.anna,    team: Teams.mercedes, dnfs: [], doubleDnfs: [] },
-    { player: players.jazz,    team: Teams.mclaren,  dnfs: [Races.australia], doubleDnfs: [] },
+    { player: players.jazz,    team: Teams.mclaren,  dnfs: [Races.australia], doubleDnfs: [Races.china] },
     { player: players.omar,    team: Teams.ferrari,  dnfs: [], doubleDnfs: [] },
-    { player: players.joe,     team: Teams.mclaren,  dnfs: [Races.australia], doubleDnfs: [] },
+    { player: players.joe,     team: Teams.mclaren,  dnfs: [Races.australia], doubleDnfs: [Races.china] },
     { player: players.michael, team: Teams.alpine,   dnfs: [], doubleDnfs: [] },
     { player: players.koli,    team: Teams.mercedes, dnfs: [], doubleDnfs: [] },
   ];
