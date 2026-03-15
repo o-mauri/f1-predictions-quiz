@@ -1,6 +1,12 @@
 <div class="app">
   <header class="header">
-    <h1 class="title">{{ appTitle }}</h1>
+    <div class="header-top">
+      <h1 class="title">{{ appTitle }}</h1>
+      <div class="race-badge">
+        <span class="race-badge__label">Correct as of:</span>
+        <app-race-icon [race]="currentRace" size="sm" variant="standard" [showLabel]="true" />
+      </div>
+    </div>
     <div class="selector">
       <button
         type="button"

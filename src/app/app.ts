@@ -1,6 +1,8 @@
 import { Component, signal, computed } from '@angular/core';
 import { MatIcon, MatIconModule } from '@angular/material/icon'
 import { TotalScoresComponent } from './total-scores/total-scores.component';
+import { RaceIconComponent } from './race-icon/race-icon.component';
+import { currentRace } from '../assets/data/config';
 import { Question1Component } from './question-1/question-1.component';
 import { Question2Component } from './question-2/question-2.component';
 import { Question3Component } from './question-3/question-3.component';
@@ -29,6 +31,7 @@ const TOTAL_QUESTIONS = 20;
   selector: 'app-root',
   imports: [
     QuestionSelectorComponent,
+    RaceIconComponent,
     TotalScoresComponent,
     Question1Component,
     Question2Component,
@@ -56,6 +59,7 @@ const TOTAL_QUESTIONS = 20;
 })
 export class App {
   readonly appTitle = 'F1 Predictions Quiz';
+  readonly currentRace = currentRace;
 
   /** 0 = Total scores, 1–20 = Question 1–20 */
   readonly currentIndex = signal(0);
