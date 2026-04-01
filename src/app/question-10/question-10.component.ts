@@ -83,7 +83,7 @@ export class Question10Component {
     {
       player: players.jazz,
       race1: Races.japan,
-      race1pos: '',
+      race1pos: '20th',
       race1pts: 0,
       race2: Races.singapore,
       race2pos: '',
@@ -113,8 +113,8 @@ export class Question10Component {
       race4pos: '',
       race4pts: 0,
       race5: Races.japan,
-      race5pos: '',
-      race5pts: 0,
+      race5pos: '9th',
+      race5pts: 2,
     },
     {
       player: players.joe,

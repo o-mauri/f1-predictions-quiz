@@ -28,7 +28,7 @@ export class Question6Component {
     return this.allDrivers.filter((d) => !this.removeDrivers.includes(d));
   }
 
-  podiumDrivers: Driver[] = [Drivers.georgeRussell, Drivers.kimiAntonelli, Drivers.charlesLeclerc, Drivers.lewisHamilton];
+  podiumDrivers: Driver[] = [Drivers.georgeRussell, Drivers.kimiAntonelli, Drivers.charlesLeclerc, Drivers.lewisHamilton, Drivers.oscarPiastri];
 
   getScore(player: Player): QuestionScore {
     return questionScores[6][getPlayerKey(player)];

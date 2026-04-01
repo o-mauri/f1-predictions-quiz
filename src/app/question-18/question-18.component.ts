@@ -76,7 +76,7 @@ export class Question18Component {
     {
       player: players.michael,
       race1: Races.japan,
-      raceText1: '',
+      raceText1: 'X',
       race2: Races.greatBritain,
       raceText2: '',
       race3: Races.belgium,
