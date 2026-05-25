@@ -50,7 +50,7 @@ export class Question12Component {
   readonly sprintRaces: SprintRaceResult[] = [
     { race: Races.china,        sprintWinner: Drivers.georgeRussell, mainRaceWinner: Drivers.kimiAntonelli },
     { race: Races.miami,        sprintWinner: Drivers.landoNorris, mainRaceWinner: Drivers.kimiAntonelli },
-    { race: Races.canada,       sprintWinner: null, mainRaceWinner: null },
+    { race: Races.canada,       sprintWinner: Drivers.georgeRussell, mainRaceWinner: Drivers.kimiAntonelli },
     { race: Races.greatBritain, sprintWinner: null, mainRaceWinner: null },
     { race: Races.netherlands,  sprintWinner: null, mainRaceWinner: null },
     { race: Races.singapore,    sprintWinner: null, mainRaceWinner: null },

@@ -41,7 +41,8 @@ Required information, in order:
 4. **Driver of the Day**.
 5. **Weather / tyres**: did anyone use wet or intermediate tyres in the main race? (For Q18 — pure SCs and red flags do NOT count, only wet/inters.)
 6. **Race incident counts (for Q8)** — only if at least one player picked this race in Q8: how many **safety cars (SC)**, **virtual safety cars (VSC)**, and **red flags** were deployed during the race. You (the AI) are responsible for finding these counts during research; the user does not provide them. Skip the research if no player picked the race in Q8.
-7. **Updated drivers' and constructors' championship standings** (sanity-check totals).
+7. **Sprint in-race pit-stop count (for Q13)** — ON EVERY SPRINT WEEKEND, research the number of pit stops made by drivers DURING the sprint race itself (not pre-race tyre changes). This is REQUIRED whether or not any player picked the race for Q13, because every sprint contributes to the season-end "most pit stops" bonus calculation. Sources: F1.com sprint report (look for mentions of drivers pitting during the sprint due to SC, damage, data gathering, or strategic stops). Sprints typically have 0–3 stops; SC-affected sprints can have many more.
+8. **Updated drivers' and constructors' championship standings** (sanity-check totals).
 
 Sources that work well:
 - `formula1.com/en/results/2026/races/<id>/<slug>/race-result` (and `/sprint-results`, `/qualifying`)
@@ -57,6 +58,8 @@ Before editing anything, ask via `AskUserQuestion` for any of these that are amb
 - **Cancelled races** that intersect player picks (Q10 racepts, Q8 races, etc.).
 
 ### Tiebreak rule (CODIFIED — do not ask the user about this)
+
+**Scope of this rule:** F1 countback applies ONLY to standings/championship rankings (Q1, Q3, Q5, Q11, Q19 — anywhere where the stat is a cumulative points total or a season-long count and you need to establish a ranking order in `data.ts`). **It does NOT apply to Q14 team-mate battle stats**, which compare two discrete scalar values (best finish, DNF count, P11 count, etc.) — for Q14 ties, see the Q14 section: `<team>Winner = null` and no badge is awarded.
 
 For any tie on points (drivers championship, constructors championship, F1.5 standings, sprint standings, or any other ranking), apply **F1 countback** by finishing position:
 
@@ -374,7 +377,26 @@ After updating component fields, recompute each affected player's total Q10 scor
 - Provisional now; could become confirmed at season end.
 
 ### Q13 — Most pit-stops in a sprint race
-Currently `z()` (all zeros) — will activate later in the season.
+**Pick:** each player picks one sprint race. Each answer has a `pitCount` field.
+
+**Scoring:** `5 pts per pit stop` (provisional, applies per pit stop in the player's picked sprint) + `+10 bonus` for the race that ends up with the most pit stops across the 6 sprints (resolved at season end).
+
+🚨 **MANDATORY EVERY SPRINT WEEKEND — DO NOT LEAVE Q13 AT `z()` ONCE A SPRINT HAS HAPPENED.** Past commits (China update, Miami update) left Q13 at `z()` even though sprints with pit stops occurred, which compounded into a missing scoring state. Don't perpetuate this — activate Q13 the moment the first sprint of the season runs.
+
+**Workflow on every sprint weekend:**
+
+1. **Research the sprint's in-race pit-stop count** (separate from the main race; sprint stops are usually visible in F1.com sprint reports — look for mentions of drivers pitting due to SC, damage, data gathering, or strategic compound swaps). Count drivers who made an in-race stop (not pre-race tyre choices). A dry sprint with no SC typically has 0–2 stops; a sprint with an SC can have many more (entire field pitting under SC counts each one).
+2. **For each of the 7 players, check their `race` pick.** If it matches the just-finished sprint, update their `pitCount` field to the researched count.
+3. **Recompute scores.ts Q13** for every player:
+   - If their picked sprint has happened: `provisional = 5 × pitCount`.
+   - If their picked sprint hasn't happened: `provisional = 0` (s()).
+   - `confirmed` stays `null` until season-end (the +10 bonus is resolved then).
+4. **Even if NO player picked this sprint**, you should still record the pit-stop count somewhere (e.g. in the response narration) so that the season-end "+10 most pit stops" bonus can be calculated against all 6 sprints. (The component doesn't currently store per-race counts for un-picked races, so just keep it in your narration / commit message.)
+
+**Common Q13 traps:**
+- Skipping the question because it "looks dormant" (z()) — that's a stale state, not an indicator that the question hasn't activated.
+- Counting pre-race tyre changes (e.g. drivers starting on intermediates and swapping early) as in-race pit stops. These ARE pit stops if they happen after lights out; just don't conflate with the formation-lap or pre-race grid choices.
+- Forgetting to set `pitCount` on multiple players who picked the same sprint — every player who picked that sprint gets the same `pitCount`.
 
 ### Q14 — Team mate battles
 Each team has a specific question. The `results` object holds two stats and a `winner` flag per team. The +5 badge is awarded to the driver(s) in `*Winner` slots.
@@ -400,13 +422,22 @@ Each team has a specific question. The `results` object holds two stats and a `w
 
 **Heuristic:** if the question asks about "points" in a championship sense, use the drivers-championship total (which is what's in `driversChampionshiop`'s `count` field — that already includes sprint). If the question asks about anything else (wins, finishes, DNFs, laps, qualifying), it's main race only.
 
+🚨 **Q14 TIEBREAK RULE — DIFFERENT FROM THE GLOBAL TIEBREAK RULE.** The codified F1 countback tiebreak in Step 2 applies ONLY to standings rankings (Q1/Q3/Q5/Q11/Q19) — i.e. where the stat itself is a cumulative point total. For Q14, the stats are **discrete scalar values** (best finish position, in-points count, DNF count, lap count, P11 count, quali wins, sprint pts). When stat1 == stat2 for a team, `<team>Winner` MUST be `null` — DO NOT apply F1 countback or any secondary tiebreak. Both drivers display equally, no +5 badge for anyone.
+
+Concrete examples:
+- Alpine: Gasly's best finish P6, Colapinto's best finish P6 → `alpineWinner: null` (even though Gasly has more total scoring finishes overall — that's not part of the question).
+- Mercedes: both Russell and Antonelli have 1 P2/P3 finish each → `mercedesWinner: null`.
+- Audi: both Hulkenberg and Bortoleto have 0 sprint pts → `audiWinner: null`.
+
+The question is exactly what the title says — "Who has the most X" — and if they're tied on X, nobody wins, regardless of who would win a hypothetical secondary comparison.
+
 ⚠️ **AUDIT EXISTING VALUES — don't trust the pre-race state.** Past updates may have introduced bugs that survived because nobody recomputed from first principles. During the Miami validation, the agent caught that `mercedesStat1` was `'2'` pre-Miami when it should have been `'1'` (Russell only had one main-race P2/P3 finish across Aus/China/Japan, not two). The error had been baked in from a prior race update.
 
 **Procedure: for every team, recompute stat1 and stat2 strictly from the rule in the table below, against actual race results across the whole season so far. Compare to the existing values. If they don't match, the existing value was wrong — overwrite it.** Note any pre-existing bugs in your response so the user can decide whether to also amend earlier commits.
 
 After each race:
 - Recompute every team's stat1/stat2 **from scratch using all races run so far, including the new race**.
-- Set `<team>Winner` to the leading driver, or `null` if tied.
+- Set `<team>Winner` to the leading driver. **If stat1 == stat2 (discrete tie), set `<team>Winner: null`.** Do not apply F1 countback to Q14 stats.
 - Each `+5` badge contributes to that player's Q14 provisional score (5 pts per team they got right). The scores.ts entry is the SUM of +5 badges currently awarded across all teams for each player.
 
 ⚠️ **CRITICAL: every time ANY `<team>Winner` flips (changes driver OR goes to/from null), recompute every player's Q14 total in `scores.ts` from scratch.** Do not assume a player's Q14 total is unchanged just because their picks haven't changed — the winners can change underneath them. Concrete failure case during the Miami update: Racing Bulls winner flipped Lawson→Lindblad and Cadillac winner flipped Perez→null; players who had Lawson/Perez lost badges and players who had Lindblad gained one, but the Q14 totals weren't recomputed and stayed at pre-Miami values.

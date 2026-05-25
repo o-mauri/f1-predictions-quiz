@@ -34,8 +34,8 @@ export class Question4Component {
   }
 
   readonly answers: Question4Answer[] = [
-    { player: players.kundan,  driver: Drivers.lewisHamilton, races: [] },
-    { player: players.anna,    driver: Drivers.lewisHamilton, races: [] },
+    { player: players.kundan,  driver: Drivers.lewisHamilton, races: [Races.canada] },
+    { player: players.anna,    driver: Drivers.lewisHamilton, races: [Races.canada] },
     { player: players.jazz,    driver: Drivers.landoNorris, races: [] },
     { player: players.omar,    driver: Drivers.kimiAntonelli, races: [Races.china] },
     { player: players.joe,     driver: Drivers.kimiAntonelli, races: [Races.china] },
