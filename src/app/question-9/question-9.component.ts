@@ -46,7 +46,7 @@ export class Question9Component {
     { player: players.jazz,    team: Teams.mclaren,  dnfs: [Races.australia], doubleDnfs: [Races.china] },
     { player: players.omar,    team: Teams.ferrari,  dnfs: [], doubleDnfs: [] },
     { player: players.joe,     team: Teams.mclaren,  dnfs: [Races.australia], doubleDnfs: [Races.china] },
-    { player: players.michael, team: Teams.alpine,   dnfs: [], doubleDnfs: [] },
+    { player: players.michael, team: Teams.alpine,   dnfs: [Races.miami], doubleDnfs: [] },
     { player: players.koli,    team: Teams.mercedes, dnfs: [], doubleDnfs: [] },
   ];
 }
