@@ -38,9 +38,9 @@ export class Question13Component {
     { player: players.kundan,  race: Races.greatBritain, pitCount: 0 },
     { player: players.anna,    race: Races.greatBritain, pitCount: 0 },
     { player: players.jazz,    race: Races.greatBritain, pitCount: 0 },
-    { player: players.omar,    race: Races.canada,       pitCount: 0 },
+    { player: players.omar,    race: Races.canada,       pitCount: 2 },
     { player: players.joe,     race: Races.netherlands,  pitCount: 0 },
-    { player: players.michael, race: Races.canada,       pitCount: 0 },
-    { player: players.koli,    race: Races.canada,       pitCount: 0 },
+    { player: players.michael, race: Races.canada,       pitCount: 2 },
+    { player: players.koli,    race: Races.canada,       pitCount: 2 },
   ];
 }

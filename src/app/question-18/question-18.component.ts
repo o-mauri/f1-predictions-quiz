@@ -24,14 +24,14 @@ interface Question18Answer {
   imports: [QuestionTitleComponent, PlayerIconComponent, RaceIconComponent],
 })
 export class Question18Component {
-  interRaces: Race[] = [];
+  interRaces: Race[] = [Races.canada];
   wetRaces: Race[] = [];
 
   readonly answers: Question18Answer[] = [
     {
       player: players.kundan,
       race1: Races.canada,
-      raceText1: '',
+      raceText1: 'X',
       race2: Races.greatBritain,
       raceText2: '',
       race3: Races.saoPaulo,
@@ -58,7 +58,7 @@ export class Question18Component {
     {
       player: players.omar,
       race1: Races.canada,
-      raceText1: '',
+      raceText1: 'X',
       race2: Races.greatBritain,
       raceText2: '',
       race3: Races.belgium,
