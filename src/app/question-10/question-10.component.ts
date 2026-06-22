@@ -122,7 +122,7 @@ export class Question10Component {
       race1pos: 'X',
       race1pts: 0,
       race2: Races.monaco,
-      race2pos: '',
+      race2pos: '13th',
       race2pts: 0,
       race3: Races.azerbaijan,
       race3pos: '',

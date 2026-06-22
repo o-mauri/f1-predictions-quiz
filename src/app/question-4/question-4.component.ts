@@ -37,8 +37,8 @@ export class Question4Component {
     { player: players.kundan,  driver: Drivers.lewisHamilton, races: [Races.canada] },
     { player: players.anna,    driver: Drivers.lewisHamilton, races: [Races.canada] },
     { player: players.jazz,    driver: Drivers.landoNorris, races: [] },
-    { player: players.omar,    driver: Drivers.kimiAntonelli, races: [Races.china] },
-    { player: players.joe,     driver: Drivers.kimiAntonelli, races: [Races.china] },
+    { player: players.omar,    driver: Drivers.kimiAntonelli, races: [Races.china, Races.monaco] },
+    { player: players.joe,     driver: Drivers.kimiAntonelli, races: [Races.china, Races.monaco] },
     { player: players.michael, driver: Drivers.landoNorris, races: [] },
     { player: players.koli,    driver: Drivers.landoNorris, races: [] },
   ];
