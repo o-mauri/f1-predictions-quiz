@@ -28,7 +28,7 @@ export class Question6Component {
     return this.allDrivers.filter((d) => !this.removeDrivers.includes(d));
   }
 
-  podiumDrivers: Driver[] = [Drivers.georgeRussell, Drivers.kimiAntonelli, Drivers.charlesLeclerc, Drivers.lewisHamilton, Drivers.oscarPiastri, Drivers.landoNorris, Drivers.maxVerstappen];
+  podiumDrivers: Driver[] = [Drivers.georgeRussell, Drivers.kimiAntonelli, Drivers.charlesLeclerc, Drivers.lewisHamilton, Drivers.oscarPiastri, Drivers.landoNorris, Drivers.maxVerstappen, Drivers.pierreGasly];
 
   getScore(player: Player): QuestionScore {
     return questionScores[6][getPlayerKey(player)];

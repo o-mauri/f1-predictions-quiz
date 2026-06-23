@@ -122,7 +122,7 @@ export class Question10Component {
       race1pos: 'X',
       race1pts: 0,
       race2: Races.monaco,
-      race2pos: '',
+      race2pos: '13th',
       race2pts: 0,
       race3: Races.azerbaijan,
       race3pos: '',
@@ -155,7 +155,7 @@ export class Question10Component {
     {
       player: players.koli,
       race1: Races.barcelonaCatalunya,
-      race1pos: '',
+      race1pos: 'DNF',
       race1pts: 0,
       race2: Races.singapore,
       race2pos: '',

@@ -41,12 +41,12 @@ export class Question9Component {
   }
 
   readonly answers: Question9Answer[] = [
-    { player: players.kundan,  team: Teams.ferrari,  dnfs: [], doubleDnfs: [] },
-    { player: players.anna,    team: Teams.mercedes, dnfs: [Races.canada], doubleDnfs: [] },
-    { player: players.jazz,    team: Teams.mclaren,  dnfs: [Races.australia, Races.canada], doubleDnfs: [Races.china] },
-    { player: players.omar,    team: Teams.ferrari,  dnfs: [], doubleDnfs: [] },
-    { player: players.joe,     team: Teams.mclaren,  dnfs: [Races.australia, Races.canada], doubleDnfs: [Races.china] },
+    { player: players.kundan,  team: Teams.ferrari,  dnfs: [Races.monaco, Races.barcelonaCatalunya], doubleDnfs: [] },
+    { player: players.anna,    team: Teams.mercedes, dnfs: [Races.canada, Races.barcelonaCatalunya], doubleDnfs: [] },
+    { player: players.jazz,    team: Teams.mclaren,  dnfs: [Races.australia, Races.canada, Races.monaco], doubleDnfs: [Races.china] },
+    { player: players.omar,    team: Teams.ferrari,  dnfs: [Races.monaco, Races.barcelonaCatalunya], doubleDnfs: [] },
+    { player: players.joe,     team: Teams.mclaren,  dnfs: [Races.australia, Races.canada, Races.monaco], doubleDnfs: [Races.china] },
     { player: players.michael, team: Teams.alpine,   dnfs: [Races.miami], doubleDnfs: [] },
-    { player: players.koli,    team: Teams.mercedes, dnfs: [Races.canada], doubleDnfs: [] },
+    { player: players.koli,    team: Teams.mercedes, dnfs: [Races.canada, Races.barcelonaCatalunya], doubleDnfs: [] },
   ];
 }

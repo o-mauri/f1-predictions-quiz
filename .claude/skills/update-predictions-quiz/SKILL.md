@@ -270,11 +270,25 @@ Concrete example: at Miami 2026, Isack Hadjar set his fastest in Q2 and qualifie
 ### Q8 — Most chaotic race weekends
 **Pick:** each player picks 2 race weekends. **Scoring:** based on the SC/VSC/red-flag tallies for each picked race.
 
+🚨 **SCORING IS WEIGHTED — NOT a flat "5 per incident". Get the weights right:**
+
+| Incident type | Points each |
+|---|---|
+| **Red flag** | **15** |
+| **Safety car (SC)** | **10** |
+| **Virtual safety car (VSC)** | **5** |
+
+So a picked race's confirmed contribution = `(red × 15) + (sc × 10) + (vsc × 5)`. (This formula is also rendered in [question-8.component.html](../../../src/app/question-8/question-8.component.html) — `red*15`, `sc*10`, `vsc*5` — and stated in the question description. The component HTML is the source of truth; match it.)
+
+**Worked example (Monaco 2026, picked by jazz/michael/koli):** 1 red flag + 2 safety cars + 0 VSC → `(1×15) + (2×10) + (0×5)` = **35**, NOT 15. A past run wrongly used a flat 5-per-incident and wrote `+15` — do not repeat this. Cross-check: a VSC-only race like Australia (3 VSC) = `3×5` = 15, which is why pure-VSC races happen to look like "5 each".
+
+🚨 **SC-that-becomes-a-red-flag counts as BOTH.** If a safety car is deployed and the incident then escalates to a red flag, tally **both** the SC (×10) and the red flag (×15) — they are two separate scoring events, not one. (Monaco 2026: the 2nd SC for Leclerc's crash escalated to a red flag → `sc=2, red=1`.)
+
 Per-player fields in the Q8 component:
 - `race1` / `race2` — the two race picks.
 - `red1` / `sc1` / `vsc1` — counts for race1 of red flags, safety cars, and virtual safety cars during the main race.
 - `red2` / `sc2` / `vsc2` — same for race2.
-- `text1` / `text2` — display label (e.g. `"+15"` shows a confirmed contribution).
+- `text1` / `text2` — display label on the race icon. **Set it to the slot's total contribution, e.g. `"+35"`, and it MUST equal that slot's `(red×15)+(sc×10)+(vsc×5)`.** `"X"` marks a cancelled/resolved-zero pick.
 
 **The AI populates these counts during research.** When updating for a new race:
 
@@ -283,9 +297,10 @@ Per-player fields in the Q8 component:
    - Number of **red flags** raised
    - Number of **full safety cars (SC)** deployed
    - Number of **virtual safety cars (VSC)** deployed
+   - Remember the SC→red-flag double-count rule above.
 3. **Only write into the slot that matches the player's pick.** If the race is the player's `race1`, update `red1` / `sc1` / `vsc1` only. If it's their `race2`, update `red2` / `sc2` / `vsc2` only. Never touch the other slot — that race may not have happened yet.
 4. Players who did NOT pick this race in either slot: leave Q8 untouched.
-5. Update each affected player's confirmed score in `scores.ts` accordingly. Confirmed-only (`c()`).
+5. Update each affected player's confirmed score in `scores.ts` accordingly, using the weighted formula. Confirmed-only (`c()`). The `scores.ts` value, the `text{N}` label, and `(red×15)+(sc×10)+(vsc×5)` must all agree.
 
 Sources: race reports on formula1.com, motorsport.com, or the-race.com usually list every SC/VSC/red flag explicitly.
 
@@ -495,15 +510,27 @@ Then:
 
 **Trigger condition (AI must research this):** if **any driver** put on intermediate or wet tyres for **even a single lap** of the main race, the race counts. It does not need to be the whole field, it does not need to be for any minimum number of laps — one driver, one lap on inters or wets is enough.
 
-**Workflow each weekend:**
-1. As part of research, check the tyre-strategy report for the just-finished main race (formula1.com strategy report, pirelli.com, the-race.com). Look for any mention of "intermediates", "inters", "wets", or "wet tyres" being fitted.
-2. If yes:
-   - Add the race to `wetRaces` (if anyone used wets) and/or `interRaces` (if anyone used inters) arrays in the Q18 component.
-   - For every player whose Q18 pick includes this race, set the matching `raceText{N}` field to `'X'`.
-   - Recompute each affected player's score: `confirmed` += 5 per newly-flipped pick.
-3. If no driver used inters/wets in the main race, leave Q18 alone.
+**🚩 `raceText{N}` marker convention (the flag overlay) — encode the OUTCOME of a resolved pick:**
 
-**Things that do NOT trigger this question:** SCs, VSCs, red flags, rain that fell but didn't lead to a tyre change, drying conditions where everyone stays on slicks. Only an actual tyre swap to wet or intermediate compound counts.
+| Marker | Meaning | Points for that pick |
+|---|---|---|
+| `'INT'` | intermediates appeared in the picked race's main race | **+5** (hit) |
+| `'WET'` | full wet tyres appeared | **+5** (hit) |
+| `'X'` | the picked race has happened but was **dry** — nothing (a confirmed miss) | **0** |
+| `''` (blank) | the picked race **has not happened yet** — unresolved | 0 (pending) |
+
+Do NOT use `'X'` for a hit — `'X'` means "nothing happened". A past run wrongly marked Canada (which had intermediates) as `'X'`; it should be `'INT'`. If both inters AND wets appeared in the same race, use `'WET'` (the more extreme condition) for the marker, and add the race to both arrays.
+
+**Workflow each weekend (do this for EVERY player whose pick is the just-finished race, hit or miss):**
+1. As part of research, check the tyre-strategy report for the just-finished main race (formula1.com strategy report, pirelli.com, the-race.com). Look for any mention of "intermediates", "inters", "wets", or "wet tyres" being fitted.
+2. **If inters/wets were used:**
+   - Add the race to `interRaces` (if anyone used inters) and/or `wetRaces` (if anyone used wets) arrays in the Q18 component.
+   - For every player whose Q18 pick includes this race, set the matching `raceText{N}` to `'INT'` or `'WET'` (per the table above).
+   - Recompute each affected player's score: `confirmed` += 5 per newly-hit pick.
+3. **If the race was dry (no inters/wets):** for every player whose Q18 pick includes this just-finished race, set the matching `raceText{N}` to `'X'` (resolved miss, 0 pts). Do NOT leave it blank — blank means "not yet raced", and this race HAS now raced. (This is the step most often missed: a dry race that someone picked still needs its `'X'` marker.)
+4. Players whose picks are all future races: leave their blanks alone.
+
+**Things that do NOT count as wet/inter (mark `'X'` if the race happened and these were the only "drama"):** SCs, VSCs, red flags, rain that fell but didn't lead to a tyre change, drying conditions where everyone stays on slicks. Only an actual tyre swap to wet or intermediate compound counts as a hit (`'INT'`/`'WET'`).
 
 ### Q19 — F1.5 Champion
 **Pick:** one driver who is NOT from a team that has won a main race this season. **Scoring:** based on position in `f15standings`.
@@ -604,6 +631,9 @@ Every subagent prompt should contain:
 4. **A null result is valid** — "I checked, no update is required for this race, all values match" is a successful verification, not a failure.
 
 **Specific prompt fragments for high-risk questions:**
+
+**Q8 verification subagent:**
+> Scoring is WEIGHTED: red flag = 15 pts, safety car = 10 pts, virtual safety car = 5 pts. A picked race's confirmed contribution = `(red×15)+(sc×10)+(vsc×5)`. Do NOT assume a flat 5-per-incident. An SC that escalates to a red flag counts as BOTH. For each of the 7 players, identify which of their 2 picks have already happened, recompute that slot's `(red×15)+(sc×10)+(vsc×5)` from the committed `red/sc/vsc` fields, sum the happened slots, and confirm it equals BOTH the `scores.ts` confirmed value AND the slot's `text{N}` label. Report any player where the three don't agree (e.g. a Monaco pick with `red=1, sc=2` must be 35, not 15).
 
 **Q9 verification subagent:**
 > List every DNF in the just-finished main race as `driver → team` pairs. Then for each of the 7 players, look up their Q9 team pick. For each player, state whether their team had 0 / 1 / 2 cars DNF in this race, and what update (if any) is required to `dnfs` / `doubleDnfs` arrays. Compare this expected state to the committed values. Report any player whose state doesn't match. Critically, do NOT skip this verification just because the race seemed clean — confirm explicitly for each player.

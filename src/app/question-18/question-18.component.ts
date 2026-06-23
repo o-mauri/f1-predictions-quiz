@@ -31,7 +31,7 @@ export class Question18Component {
     {
       player: players.kundan,
       race1: Races.canada,
-      raceText1: 'X',
+      raceText1: 'INT',
       race2: Races.greatBritain,
       raceText2: '',
       race3: Races.saoPaulo,
@@ -58,7 +58,7 @@ export class Question18Component {
     {
       player: players.omar,
       race1: Races.canada,
-      raceText1: 'X',
+      raceText1: 'INT',
       race2: Races.greatBritain,
       raceText2: '',
       race3: Races.belgium,
@@ -67,7 +67,7 @@ export class Question18Component {
     {
       player: players.joe,
       race1: Races.monaco,
-      raceText1: '',
+      raceText1: 'X',
       race2: Races.austria,
       raceText2: '',
       race3: Races.netherlands,
