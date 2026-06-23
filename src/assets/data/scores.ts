@@ -131,11 +131,11 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
   8: {
     kundan:  c(15),
     anna:    c(15),
-    jazz:    c(15),
+    jazz:    c(35),
     omar:    c(0),
     joe:     c(15),
-    michael: c(15),
-    koli:    c(15),
+    michael: c(35),
+    koli:    c(35),
   },
 
   // ── Q9: Team with least DNFs ───────────────────────────────────────────────
