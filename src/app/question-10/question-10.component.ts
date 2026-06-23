@@ -155,7 +155,7 @@ export class Question10Component {
     {
       player: players.koli,
       race1: Races.barcelonaCatalunya,
-      race1pos: '',
+      race1pos: 'DNF',
       race1pts: 0,
       race2: Races.singapore,
       race2pos: '',

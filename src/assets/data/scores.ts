@@ -85,8 +85,8 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
 
   // ── Q4: Most DOTD awards ───────────────────────────────────────────────────
   4: {
-    kundan:  s(3),
-    anna:    s(3),
+    kundan:  s(6),
+    anna:    s(6),
     jazz:    s(0),
     omar:    s(6),
     joe:     s(6),
@@ -98,11 +98,11 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
   5: {
     kundan:  s(4),
     anna:    s(0),
-    jazz:    s(18),
+    jazz:    s(25),
     omar:    s(4),
     joe:     s(4),
     michael: s(4),
-    koli:    s(18),
+    koli:    s(25),
   },
 
   // ── Q6: Every Podium driver ────────────────────────────────────────────────
@@ -140,13 +140,13 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
 
   // ── Q9: Team with least DNFs ───────────────────────────────────────────────
   9: {
-    kundan:  c(-5),
-    anna:    c(-5),
+    kundan:  c(-10),
+    anna:    c(-10),
     jazz:    c(-30),
-    omar:    c(-5),
+    omar:    c(-10),
     joe:     c(-30),
     michael: c(-5),
-    koli:    c(-5),
+    koli:    c(-10),
   },
 
   // ── Q10: Driver race point picks (sub-scores in component) ─────────────────
@@ -195,13 +195,13 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
 
   // ── Q14: Team mate battles (sub-scores / +5 badges in component) ───────────
   14: {
-    kundan:  s(30),
-    anna:    s(25),
-    jazz:    s(25),
-    omar:    s(20),
-    joe:     s(15),
-    michael: s(20),
-    koli:    s(25),
+    kundan:  s(35),
+    anna:    s(30),
+    jazz:    s(30),
+    omar:    s(25),
+    joe:     s(20),
+    michael: s(25),
+    koli:    s(30),
   },
 
   // ── Q15: Australian GP podium (per-driver pts in component) ────────────────
@@ -242,12 +242,12 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
 
   // ── Q19: F1.5 Champion ─────────────────────────────────────────────────────
   19: {
-    kundan:  s(15),
+    kundan:  s(25),
     anna:    s(0),
-    jazz:    s(0),
+    jazz:    s(1),
     omar:    s(0),
     joe:     s(0),
-    michael: s(18),
+    michael: s(0),
     koli:    s(0),
   },
 
