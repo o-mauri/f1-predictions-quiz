@@ -59,8 +59,8 @@ export class Question10Component {
       race4pos: '',
       race4pts: 0,
       race5: Races.austria,
-      race5pos: '',
-      race5pts: 0,
+      race5pos: '9th',
+      race5pts: 2,
     },
     {
       player: players.anna,

@@ -69,7 +69,7 @@ export class Question18Component {
       race1: Races.monaco,
       raceText1: 'X',
       race2: Races.austria,
-      raceText2: '',
+      raceText2: 'X',
       race3: Races.netherlands,
       raceText3: '',
     },

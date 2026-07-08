@@ -52,8 +52,8 @@ function z(): QuestionPlayerScores {
 export const questionScores: Record<number, QuestionPlayerScores> = {
   // ── Q1: World Champion ─────────────────────────────────────────────────────
   1: {
-    kundan:  s(1),
-    anna:    s(1),
+    kundan:  s(5),
+    anna:    s(5),
     jazz:    s(0),
     omar:    s(0),
     joe:     s(0),
@@ -75,12 +75,12 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
   // ── Q3: Drivers 4th ────────────────────────────────────────────────────────
   3: {
     kundan:  s(0),
-    anna:    s(1),
-    jazz:    s(5),
-    omar:    s(1),
+    anna:    s(10),
+    jazz:    s(1),
+    omar:    s(5),
     joe:     s(5),
-    michael: s(10),
-    koli:    s(5),
+    michael: s(1),
+    koli:    s(1),
   },
 
   // ── Q4: Most DOTD awards ───────────────────────────────────────────────────
@@ -96,12 +96,12 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
 
   // ── Q5: Most laps raced ──────────────────────────────────────────────────────
   5: {
-    kundan:  s(4),
+    kundan:  s(8),
     anna:    s(0),
     jazz:    s(25),
-    omar:    s(4),
-    joe:     s(4),
-    michael: s(4),
+    omar:    s(8),
+    joe:     s(8),
+    michael: s(8),
     koli:    s(25),
   },
 
@@ -118,13 +118,13 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
 
   // ── Q7: Every Q1 elimination ───────────────────────────────────────────────
   7: {
-    kundan:  s(-15, 39),
-    anna:    s(-12, 23),
-    jazz:    s(-12, 31),
-    omar:    s(-21, 47),
-    joe:     s(-18, 39),
-    michael: s(-6, -1),
-    koli:    s(-12, -1),
+    kundan:  s(-12, 44),
+    anna:    s(-9, 28),
+    jazz:    s(-9, 36),
+    omar:    s(-18, 52),
+    joe:     s(-15, 44),
+    michael: s(-3, 4),
+    koli:    s(-9, 4),
   },
 
   // ── Q8: Most chaotic race weekends ─────────────────────────────────────────
@@ -151,7 +151,7 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
 
   // ── Q10: Driver race point picks (sub-scores in component) ─────────────────
   10: {
-    kundan:  c(0),
+    kundan:  c(2),
     anna:    c(0),
     jazz:    c(6),
     omar:    c(2),
@@ -195,13 +195,13 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
 
   // ── Q14: Team mate battles (sub-scores / +5 badges in component) ───────────
   14: {
-    kundan:  s(35),
-    anna:    s(30),
-    jazz:    s(30),
-    omar:    s(25),
-    joe:     s(20),
-    michael: s(25),
-    koli:    s(30),
+    kundan:  s(30),
+    anna:    s(25),
+    jazz:    s(25),
+    omar:    s(20),
+    joe:     s(15),
+    michael: s(20),
+    koli:    s(25),
   },
 
   // ── Q15: Australian GP podium (per-driver pts in component) ────────────────
@@ -242,7 +242,7 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
 
   // ── Q19: F1.5 Champion ─────────────────────────────────────────────────────
   19: {
-    kundan:  s(25),
+    kundan:  s(18),
     anna:    s(0),
     jazz:    s(1),
     omar:    s(0),
