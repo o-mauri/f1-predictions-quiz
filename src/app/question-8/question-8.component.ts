@@ -42,7 +42,7 @@ export class Question8Component {
 
   readonly answers: Question8Answer[] = [
     { player: players.kundan,  race1: Races.australia,  race2: Races.saoPaulo,     text1: "+15", red1: 0, sc1: 0, vsc1: 3, text2: "", red2: 0, sc2: 0, vsc2: 0 },
-    { player: players.anna,    race1: Races.australia,  race2: Races.greatBritain, text1: "+15", red1: 0, sc1: 0, vsc1: 3, text2: "", red2: 0, sc2: 0, vsc2: 0 },
+    { player: players.anna,    race1: Races.australia,  race2: Races.greatBritain, text1: "+15", red1: 0, sc1: 0, vsc1: 3, text2: "+20", red2: 0, sc2: 1, vsc2: 2 },
     { player: players.jazz,    race1: Races.monaco,     race2: Races.abuDhabi,     text1: "+35", red1: 1, sc1: 2, vsc1: 0, text2: "", red2: 0, sc2: 0, vsc2: 0 },
     { player: players.omar,    race1: Races.saudiArabia, race2: Races.madrid,      text1: "X", red1: 0, sc1: 0, vsc1: 0, text2: "", red2: 0, sc2: 0, vsc2: 0 },
     { player: players.joe,     race1: Races.canada,     race2: Races.azerbaijan,   text1: "+15", red1: 0, sc1: 0, vsc1: 3, text2: "", red2: 0, sc2: 0, vsc2: 0 },
