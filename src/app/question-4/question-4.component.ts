@@ -36,10 +36,10 @@ export class Question4Component {
   readonly answers: Question4Answer[] = [
     { player: players.kundan,  driver: Drivers.lewisHamilton, races: [Races.canada, Races.barcelonaCatalunya] },
     { player: players.anna,    driver: Drivers.lewisHamilton, races: [Races.canada, Races.barcelonaCatalunya] },
-    { player: players.jazz,    driver: Drivers.landoNorris, races: [] },
+    { player: players.jazz,    driver: Drivers.landoNorris, races: [Races.netherlands] },
     { player: players.omar,    driver: Drivers.kimiAntonelli, races: [Races.china, Races.monaco] },
     { player: players.joe,     driver: Drivers.kimiAntonelli, races: [Races.china, Races.monaco] },
-    { player: players.michael, driver: Drivers.landoNorris, races: [] },
-    { player: players.koli,    driver: Drivers.landoNorris, races: [] },
+    { player: players.michael, driver: Drivers.landoNorris, races: [Races.netherlands] },
+    { player: players.koli,    driver: Drivers.landoNorris, races: [Races.netherlands] },
   ];
 }
