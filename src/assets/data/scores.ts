@@ -88,8 +88,8 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
     kundan:  s(6),
     anna:    s(6),
     jazz:    s(3),
-    omar:    s(6),
-    joe:     s(6),
+    omar:    s(9),
+    joe:     s(9),
     michael: s(3),
     koli:    s(3),
   },
@@ -98,19 +98,19 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
   5: {
     kundan:  s(0),
     anna:    s(0),
-    jazz:    s(25),
+    jazz:    s(12),
     omar:    s(0),
     joe:     s(0),
     michael: s(0),
-    koli:    s(25),
+    koli:    s(12),
   },
 
   // ── Q6: Every Podium driver ────────────────────────────────────────────────
   6: {
-    kundan:  s(-6, 32),
-    anna:    s(-15, 32),
-    jazz:    s(-15, 32),
-    omar:    s(-12, 32),
+    kundan:  s(-3, 40),
+    anna:    s(-12, 40),
+    jazz:    s(-12, 40),
+    omar:    s(-9, 40),
     joe:     s(-9, 32),
     michael: s(-3, 32),
     koli:    s(-18, 40),
@@ -132,7 +132,7 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
     kundan:  c(15),
     anna:    c(35),
     jazz:    c(35),
-    omar:    c(0),
+    omar:    c(5),
     joe:     c(15),
     michael: c(55),
     koli:    c(55),
@@ -140,10 +140,10 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
 
   // ── Q9: Team with least DNFs ───────────────────────────────────────────────
   9: {
-    kundan:  c(-10),
+    kundan:  c(-20),
     anna:    c(-15),
     jazz:    c(-35),
-    omar:    c(-10),
+    omar:    c(-20),
     joe:     c(-35),
     michael: c(-5),
     koli:    c(-15),
@@ -195,13 +195,13 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
 
   // ── Q14: Team mate battles (sub-scores / +5 badges in component) ───────────
   14: {
-    kundan:  s(30),
-    anna:    s(30),
+    kundan:  s(25),
+    anna:    s(25),
     jazz:    s(25),
-    omar:    s(25),
-    joe:     s(15),
-    michael: s(25),
-    koli:    s(25),
+    omar:    s(30),
+    joe:     s(20),
+    michael: s(30),
+    koli:    s(20),
   },
 
   // ── Q15: Australian GP podium (per-driver pts in component) ────────────────
