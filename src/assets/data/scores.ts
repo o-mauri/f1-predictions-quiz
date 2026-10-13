@@ -74,11 +74,11 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
 
   // ── Q3: Drivers 4th ────────────────────────────────────────────────────────
   3: {
-    kundan:  s(1),
+    kundan:  s(10),
     anna:    s(0),
     jazz:    s(1),
     omar:    s(5),
-    joe:     s(10),
+    joe:     s(1),
     michael: s(5),
     koli:    s(1),
   },
@@ -96,13 +96,13 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
 
   // ── Q5: Most laps raced ──────────────────────────────────────────────────────
   5: {
-    kundan:  s(0),
+    kundan:  s(1),
     anna:    s(0),
-    jazz:    s(12),
-    omar:    s(0),
-    joe:     s(0),
-    michael: s(0),
-    koli:    s(12),
+    jazz:    s(15),
+    omar:    s(1),
+    joe:     s(1),
+    michael: s(1),
+    koli:    s(15),
   },
 
   // ── Q6: Every Podium driver ────────────────────────────────────────────────
@@ -118,13 +118,13 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
 
   // ── Q7: Every Q1 elimination ───────────────────────────────────────────────
   7: {
-    kundan:  s(-12, 44),
-    anna:    s(-9, 28),
-    jazz:    s(-9, 36),
-    omar:    s(-18, 52),
-    joe:     s(-15, 44),
-    michael: s(-3, 4),
-    koli:    s(-9, 4),
+    kundan:  s(-6, 51),
+    anna:    s(-6, 27),
+    jazz:    s(-6, 35),
+    omar:    s(-9, 67),
+    joe:     s(-9, 51),
+    michael: s(-3, -5),
+    koli:    s(-6, 3),
   },
 
   // ── Q8: Most chaotic race weekends ─────────────────────────────────────────
@@ -133,7 +133,7 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
     anna:    c(35),
     jazz:    c(35),
     omar:    c(5),
-    joe:     c(15),
+    joe:     c(35),
     michael: c(55),
     koli:    c(55),
   },
@@ -141,67 +141,67 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
   // ── Q9: Team with least DNFs ───────────────────────────────────────────────
   9: {
     kundan:  c(-20),
-    anna:    c(-15),
-    jazz:    c(-35),
+    anna:    c(-20),
+    jazz:    c(-40),
     omar:    c(-20),
-    joe:     c(-35),
-    michael: c(-5),
-    koli:    c(-15),
+    joe:     c(-40),
+    michael: c(-25),
+    koli:    c(-20),
   },
 
   // ── Q10: Driver race point picks (sub-scores in component) ─────────────────
   10: {
     kundan:  c(2),
     anna:    c(0),
-    jazz:    c(6),
+    jazz:    c(10),
     omar:    c(2),
     joe:     c(10),
-    michael: c(0),
-    koli:    c(12),
+    michael: c(15),
+    koli:    c(16),
   },
 
   // ── Q11: Sprint World Champion ─────────────────────────────────────────────
   11: {
-    kundan:  s(12),
-    anna:    s(12),
-    jazz:    s(18),
-    omar:    s(25),
-    joe:     s(6),
-    michael: s(10),
-    koli:    s(8),
+    kundan:  c(12),
+    anna:    c(12),
+    jazz:    c(15),
+    omar:    c(25),
+    joe:     c(6),
+    michael: c(8),
+    koli:    c(10),
   },
 
   // ── Q12: Sprint/main race same winner count ────────────────────────────────
   12: {
-    kundan:  s(),
-    anna:    s(),
-    jazz:    s(),
-    omar:    s(1),
-    joe:     s(),
-    michael: s(),
-    koli:    s(1),
+    kundan:  c(1),
+    anna:    c(1),
+    jazz:    c(0),
+    omar:    c(5),
+    joe:     c(0),
+    michael: c(1),
+    koli:    c(5),
   },
 
   // ── Q13: Most pit-stop sprint race ─────────────────────────────────────────
   13: {
-    kundan:  s(5),
-    anna:    s(5),
-    jazz:    s(5),
-    omar:    s(10),
-    joe:     s(),
-    michael: s(10),
-    koli:    s(10),
+    kundan:  c(10),
+    anna:    c(10),
+    jazz:    c(10),
+    omar:    c(30),
+    joe:     c(10),
+    michael: c(30),
+    koli:    c(30),
   },
 
   // ── Q14: Team mate battles (sub-scores / +5 badges in component) ───────────
   14: {
-    kundan:  s(25),
-    anna:    s(25),
+    kundan:  s(20),
+    anna:    s(20),
     jazz:    s(25),
     omar:    s(30),
     joe:     s(20),
     michael: s(30),
-    koli:    s(20),
+    koli:    s(25),
   },
 
   // ── Q15: Australian GP podium (per-driver pts in component) ────────────────
@@ -245,20 +245,20 @@ export const questionScores: Record<number, QuestionPlayerScores> = {
     kundan:  s(0),
     anna:    s(0),
     jazz:    s(1),
-    omar:    s(2),
+    omar:    s(8),
     joe:     s(0),
     michael: s(0),
-    koli:    s(4),
+    koli:    s(6),
   },
 
   // ── Q20: Grand Slam gamble ─────────────────────────────────────────────────
   20: {
-    kundan:  s(-40),
+    kundan:  c(30),
     anna:    s(),
     jazz:    s(),
-    omar:    s(-40),
-    joe:     s(-40),
-    michael: s(-40),
+    omar:    c(30),
+    joe:     c(30),
+    michael: c(30),
     koli:    s(),
   },
 };

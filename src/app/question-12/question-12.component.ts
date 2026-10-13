@@ -53,7 +53,7 @@ export class Question12Component {
     { race: Races.canada,       sprintWinner: Drivers.georgeRussell, mainRaceWinner: Drivers.kimiAntonelli },
     { race: Races.greatBritain, sprintWinner: Drivers.kimiAntonelli, mainRaceWinner: Drivers.charlesLeclerc },
     { race: Races.netherlands,  sprintWinner: Drivers.georgeRussell, mainRaceWinner: Drivers.landoNorris },
-    { race: Races.singapore,    sprintWinner: null, mainRaceWinner: null },
+    { race: Races.singapore,    sprintWinner: Drivers.maxVerstappen, mainRaceWinner: Drivers.maxVerstappen },
   ];
 
   sameWinnerCount(): number {
